@@ -6,10 +6,12 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "sanity dev",
-    "start": "sanity start",
+    "start": "pnpm dev",
+    "serve": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "deploy-graphql": "sanity graphql deploy",
+    "schema:typegen": "pnpm sanity-codegen"
   },
   "keywords": [
     "sanity"
@@ -20,13 +22,14 @@
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "sanity": "^3.25.0",
+    "sanity-codegen": "^0.9.8",
     "styled-components": "^6.0.7"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^3.0.1",
     "@types/react": "^18.0.25",
     "eslint": "^8.6.0",
-    "prettier": "^3.0.2",
+    "prettier": "^3.2.4",
     "typescript": "^5.1.6"
   },
   "prettier": {
