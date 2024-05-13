@@ -1,5 +1,5 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -30,4 +30,9 @@ export default function App() {
       </body>
     </html>
   );
+}
+
+export async function loader({ request, context }: LoaderFunctionArgs) {
+  console.log(request, context);
+  return 200;
 }
