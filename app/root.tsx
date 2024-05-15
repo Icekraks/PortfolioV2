@@ -8,6 +8,8 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { SanityClient } from "./utils/SanityClient";
+import { ROOT_QUERY } from "./graphql/queries/root";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
@@ -34,5 +36,9 @@ export default function App() {
 
 export async function loader({ request, context }: LoaderFunctionArgs) {
   console.log(request, context);
+
+  const response = await SanityClient.fetch(ROOT_QUERY);
+
+  console.log(response);
   return 200;
 }
