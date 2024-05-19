@@ -9,11 +9,13 @@ import {
   ScrollRestoration,
   defer,
 } from "@remix-run/react";
-import { SanityClient } from "./utils/SanityClient";
-import { ROOT_QUERY } from "./graphql/queries/root";
-import { Layout } from "./components/Layout/Layout";
+import { SanityClient } from "@app/utils/utils";
+import { ROOT_QUERY } from "@app/graphql/queries/root";
+import { Layout } from "@app/components/Layout/Layout";
+import styles from "@app/globals.css";
 
 export const links: LinksFunction = () => [
+  { rel: "stylesheet", href: styles },
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 

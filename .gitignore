@@ -1,4 +1,13 @@
+.DS_Store
 node_modules
+*.log
+.next
+dist
+build
+dist-ssr
+*.local
+.cache
+public/*
 
 /.cache
 /build
