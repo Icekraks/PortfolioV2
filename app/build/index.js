@@ -229,7 +229,7 @@ Button.displayName = "Button";
 import { jsxDEV as jsxDEV3 } from "react/jsx-dev-runtime";
 var Header = () => {
   let root = useRouteLoaderData("root");
-  return console.log(root), /* @__PURE__ */ jsxDEV3("header", { children: /* @__PURE__ */ jsxDEV3("div", { className: "flex", children: root.navigation.header.links.map((link, index) => (console.log(link), /* @__PURE__ */ jsxDEV3(Button, { asChild: !0, children: /* @__PURE__ */ jsxDEV3(
+  return /* @__PURE__ */ jsxDEV3("header", { children: /* @__PURE__ */ jsxDEV3("div", { className: "flex py-12 px-12", children: root.navigation.header.links.map((link, index) => /* @__PURE__ */ jsxDEV3(Button, { asChild: !0, children: /* @__PURE__ */ jsxDEV3(
     "a",
     {
       href: link.link,
@@ -241,21 +241,21 @@ var Header = () => {
     !1,
     {
       fileName: "src/components/Header/Header.tsx",
-      lineNumber: 17,
+      lineNumber: 15,
       columnNumber: 15
     },
     this
   ) }, index, !1, {
     fileName: "src/components/Header/Header.tsx",
-    lineNumber: 16,
+    lineNumber: 14,
     columnNumber: 13
-  }, this))) }, void 0, !1, {
+  }, this)) }, void 0, !1, {
     fileName: "src/components/Header/Header.tsx",
-    lineNumber: 12,
+    lineNumber: 11,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "src/components/Header/Header.tsx",
-    lineNumber: 11,
+    lineNumber: 10,
     columnNumber: 5
   }, this);
 };
@@ -284,7 +284,7 @@ var Layout = ({ children }) => {
 };
 
 // src/globals.css
-var globals_default = "/build/_assets/globals-Z5FYMAR6.css";
+var globals_default = "/build/_assets/globals-UJTH6DGR.css";
 
 // src/root.tsx
 import { jsxDEV as jsxDEV5 } from "react/jsx-dev-runtime";
@@ -447,7 +447,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-7ACPLGJF.js", imports: ["/build/_shared/chunk-BA6NHEY4.js", "/build/_shared/chunk-E3M2U2UG.js", "/build/_shared/chunk-NRH5LTJ7.js", "/build/_shared/chunk-TSUL3J54.js", "/build/_shared/chunk-K6PKGSTD.js", "/build/_shared/chunk-H5ZE7JVG.js", "/build/_shared/chunk-O4OKU2LD.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-KLFSY5OE.js", imports: ["/build/_shared/chunk-XDT5BQM4.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-5PQL67TW.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "7e16fa30", hmr: { runtime: "/build/_shared/chunk-TSUL3J54.js", timestamp: 1716105789322 }, url: "/build/manifest-7E16FA30.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-7ACPLGJF.js", imports: ["/build/_shared/chunk-BA6NHEY4.js", "/build/_shared/chunk-E3M2U2UG.js", "/build/_shared/chunk-NRH5LTJ7.js", "/build/_shared/chunk-TSUL3J54.js", "/build/_shared/chunk-K6PKGSTD.js", "/build/_shared/chunk-H5ZE7JVG.js", "/build/_shared/chunk-O4OKU2LD.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YF2VO2O2.js", imports: ["/build/_shared/chunk-XDT5BQM4.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-5PQL67TW.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "76d2aad2", hmr: { runtime: "/build/_shared/chunk-TSUL3J54.js", timestamp: 1716106040106 }, url: "/build/manifest-76D2AAD2.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

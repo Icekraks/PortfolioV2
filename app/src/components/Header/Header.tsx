@@ -6,12 +6,10 @@ import { Button } from "@app/theme/ui/button";
 export const Header: React.FC = () => {
   const root = useRouteLoaderData("root") as RootLoaderData;
 
-  console.log(root);
   return (
     <header>
-      <div className="flex">
+      <div className="flex py-12 px-12">
         {root.navigation.header.links.map((link: Link, index: number) => {
-          console.log(link);
           return (
             <Button key={index} asChild>
               <a
