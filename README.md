@@ -7,7 +7,7 @@
 From your terminal:
 
 ```sh
-npm run dev
+pnpm start
 ```
 
 This starts your app in development mode, rebuilding assets on file changes.

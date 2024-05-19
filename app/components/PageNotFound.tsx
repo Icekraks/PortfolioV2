@@ -1,11 +1,9 @@
-
-
-
 export const PageNotFound: React.FC = () => {
   return (
     <div>
       <h1>404</h1>
       <p>Page not found</p>
+      <p> hi</p>
     </div>
-  )
-}
+  );
+};

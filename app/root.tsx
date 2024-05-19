@@ -7,15 +7,27 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  defer,
 } from "@remix-run/react";
 import { SanityClient } from "./utils/SanityClient";
 import { ROOT_QUERY } from "./graphql/queries/root";
+import { Layout } from "./components/Layout/Layout";
 
 export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
-export default function App() {
+const App = () => {
+  return (
+    <Document>
+      <Layout>
+        <Outlet />
+      </Layout>
+    </Document>
+  );
+};
+
+const Document = ({ children }) => {
   return (
     <html lang="en">
       <head>
@@ -25,20 +37,21 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <Outlet />
+        {children}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
     </html>
   );
-}
+};
+
+export default App;
 
 export async function loader({ request, context }: LoaderFunctionArgs) {
-  console.log(request, context);
-
   const response = await SanityClient.fetch(ROOT_QUERY);
 
-  console.log(response);
-  return 200;
+  return defer({
+    navigation: response.navigation,
+  });
 }

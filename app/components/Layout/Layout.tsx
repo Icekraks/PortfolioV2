@@ -1,19 +1,17 @@
+import { Header } from "../Header/Header";
+import { useRef } from "react";
 
 type LayoutProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-export const Layout: React.FC<LayoutProps> = ({children}) => {
-  
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const mainRef = useRef<HTMLElement>(null);
+
   return (
-    <header>
-      <div className="flex">
-        
-      </div>
-      <div className="block">
-        {children}
-      </div>
-
-    </header>
-  )
-}
+    <div>
+      <Header />
+      <main ref={mainRef}>{children}</main>
+    </div>
+  );
+};

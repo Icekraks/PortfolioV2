@@ -1,6 +1,6 @@
 export const LINK_FRAGMENT = `
 title,
-navItems[] {
+links[] {
   title,
   link,
   external
