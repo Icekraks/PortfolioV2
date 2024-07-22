@@ -3,6 +3,13 @@ export type RootLoaderData = {
     header: Navigation;
     footer: Navigation;
   };
+  social: {
+    email: string;
+    linkedin: string;
+    github: string;
+    youtube: string;
+  };
+  }
 };
 
 export type Navigation = {

@@ -2,7 +2,9 @@ export const structure = (S) => {
   return S.list()
     .title('content')
     .items([
-      S.listItem().title('Home Page').child(),
+      S.listItem()
+        .title('Home Page')
+        .child(S.document().schemaType('home').documentId('home').title('Home Page')),
       S.listItem().title('Pages').child(S.documentTypeList('page').title('Pages')),
       S.listItem().title('Navigation').child(S.documentTypeList('navigation').title('Navigation')),
       S.listItem()
@@ -18,6 +20,14 @@ export const structure = (S) => {
                     .title('Menu Settings')
                     .schemaType('settingsMenus')
                     .documentId('settingsMenus'),
+                ),
+              S.listItem()
+                .title('Social Media Settings')
+                .child(
+                  S.document()
+                    .title('Social Media Settings')
+                    .schemaType('settingsSocial')
+                    .documentId('settingsSocial'),
                 ),
             ]),
         ),

@@ -39,10 +39,10 @@ const Document = ({ children }) => {
         <Links />
       </head>
       <body>
-        {children}
-        <ScrollRestoration />
         <Scripts />
+        <ScrollRestoration />
         <LiveReload />
+        {children}
       </body>
     </html>
   );
@@ -50,10 +50,11 @@ const Document = ({ children }) => {
 
 export default App;
 
-export async function loader({ request, context }: LoaderFunctionArgs) {
+export async function loader() {
   const response = await SanityClient.fetch(ROOT_QUERY);
 
   return defer({
     navigation: response.navigation,
+    social: response.social,
   });
 }

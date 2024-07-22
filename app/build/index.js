@@ -169,11 +169,19 @@ var ROOT_QUERY = `
   {
     "navigation": *[_type == "settingsMenus"][0] {
       ${HEADER_FRAGMENT}
+    },
+    "social": *[_type == "settingsSocial"][0] {
+      email,
+      linkedin,
+      github,
+      youtube 
+    
     }
   }
 `;
 
 // src/components/Header/Header.tsx
+import React2, { useEffect } from "react";
 import { useRouteLoaderData } from "@remix-run/react";
 
 // src/theme/ui/button.tsx
@@ -226,36 +234,267 @@ var buttonVariants = cva(
 Button.displayName = "Button";
 
 // src/components/Header/Header.tsx
+import { Github, Linkedin, Mail, Menu, Youtube } from "lucide-react";
+
+// src/hooks/useMedia.ts
+import { useMediaQuery } from "react-responsive";
+
+// tailwind.config.ts
+import tailwindcssAnimate from "tailwindcss-animate";
+var tailwind_config_default = {
+  darkMode: ["class"],
+  content: ["./src/**/*.{ts,tsx}"],
+  prefix: "",
+  theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1400px"
+    },
+    container: {
+      center: !0,
+      padding: "2rem"
+    },
+    extend: {
+      colors: {
+        border: "#b58900",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--primary))",
+        foreground: "hsl(var(--primary-foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))"
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))"
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))"
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))"
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))"
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))"
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))"
+        }
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)"
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" }
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" }
+        }
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out"
+      }
+    }
+  },
+  plugins: [tailwindcssAnimate]
+};
+
+// src/hooks/useMedia.ts
+var useMedia = () => {
+  let breakpoints = tailwind_config_default.theme.screens;
+  return {
+    isBase: useMediaQuery({ query: "(min-width: 0px)" }),
+    isSm: useMediaQuery({
+      query: `(min-width: ${breakpoints.sm})`
+    }),
+    isMd: useMediaQuery({
+      query: `(min-width: ${breakpoints.md})`
+    }),
+    isLg: useMediaQuery({
+      query: `(min-width: ${breakpoints.lg})`
+    }),
+    isXl: useMediaQuery({
+      query: `(min-width: ${breakpoints.xl})`
+    }),
+    is2xl: useMediaQuery({
+      query: `(min-width: ${breakpoints.xl})`
+    }),
+    touch: useMediaQuery({ query: "(hover: none)" })
+  };
+};
+
+// src/components/Header/Header.tsx
 import { jsxDEV as jsxDEV3 } from "react/jsx-dev-runtime";
 var Header = () => {
-  let root = useRouteLoaderData("root");
-  return /* @__PURE__ */ jsxDEV3("header", { children: /* @__PURE__ */ jsxDEV3("div", { className: "flex py-12 px-12", children: root.navigation.header.links.map((link, index) => /* @__PURE__ */ jsxDEV3(Button, { asChild: !0, children: /* @__PURE__ */ jsxDEV3(
-    "a",
-    {
-      href: link.link,
-      target: link.external ? "_blank" : "",
-      rel: "noreferrer",
-      children: link.title
-    },
-    index,
-    !1,
-    {
-      fileName: "src/components/Header/Header.tsx",
-      lineNumber: 15,
-      columnNumber: 15
-    },
-    this
-  ) }, index, !1, {
+  let root = useRouteLoaderData("root"), [isMenuOpen, setIsMenuOpen] = React2.useState(!1), isMd = useMedia();
+  return useEffect(() => {
+    isMd && setIsMenuOpen(!1);
+  }, [isMd]), /* @__PURE__ */ jsxDEV3("header", { children: [
+    /* @__PURE__ */ jsxDEV3(
+      "div",
+      {
+        className: cn(
+          "fixed md:sticky md:translate-x-0 transition-transform top-0 left-0 w-[15rem] flex flex-col bg-[#002b36] h-[100dvh] justify-between px-4 pt-12 pb-4 md:px-12 md:pt-12 md:pb-12",
+          isMenuOpen ? "translate-x-0" : "translate-x-[-100%]"
+        ),
+        children: [
+          /* @__PURE__ */ jsxDEV3("div", { className: "flex flex-col gap-4", children: root.navigation.header.links.map((link, index) => /* @__PURE__ */ jsxDEV3(Button, { variant: "secondary", asChild: !0, children: /* @__PURE__ */ jsxDEV3(
+            "a",
+            {
+              href: link.link,
+              target: link.external ? "_blank" : "",
+              rel: "noreferrer",
+              children: link.title
+            },
+            index,
+            !1,
+            {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 32,
+              columnNumber: 17
+            },
+            this
+          ) }, index, !1, {
+            fileName: "src/components/Header/Header.tsx",
+            lineNumber: 31,
+            columnNumber: 15
+          }, this)) }, void 0, !1, {
+            fileName: "src/components/Header/Header.tsx",
+            lineNumber: 28,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV3(Button, { variant: "secondary", onClick: (e) => console.log(e, "clicked"), children: /* @__PURE__ */ jsxDEV3(Menu, {}, void 0, !1, {
+            fileName: "src/components/Header/Header.tsx",
+            lineNumber: 45,
+            columnNumber: 11
+          }, this) }, void 0, !1, {
+            fileName: "src/components/Header/Header.tsx",
+            lineNumber: 44,
+            columnNumber: 9
+          }, this),
+          /* @__PURE__ */ jsxDEV3("div", { className: "flex md:flex-col justify-center items-center gap-2 md:gap-8", children: [
+            root.social.email && /* @__PURE__ */ jsxDEV3(Button, { variant: "outline", size: "icon", asChild: !0, children: /* @__PURE__ */ jsxDEV3(
+              "a",
+              {
+                href: `mailto:${root.social.email}`,
+                target: "_blank",
+                rel: "noreferrer",
+                children: /* @__PURE__ */ jsxDEV3(Mail, {}, void 0, !1, {
+                  fileName: "src/components/Header/Header.tsx",
+                  lineNumber: 55,
+                  columnNumber: 17
+                }, this)
+              },
+              void 0,
+              !1,
+              {
+                fileName: "src/components/Header/Header.tsx",
+                lineNumber: 50,
+                columnNumber: 15
+              },
+              this
+            ) }, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 49,
+              columnNumber: 13
+            }, this),
+            root.social.linkedin && /* @__PURE__ */ jsxDEV3(Button, { variant: "outline", size: "icon", asChild: !0, children: /* @__PURE__ */ jsxDEV3("a", { href: root.social.linkedin, target: "_blank", rel: "noreferrer", children: /* @__PURE__ */ jsxDEV3(Linkedin, {}, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 62,
+              columnNumber: 17
+            }, this) }, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 61,
+              columnNumber: 15
+            }, this) }, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 60,
+              columnNumber: 13
+            }, this),
+            root.social.github && /* @__PURE__ */ jsxDEV3(Button, { variant: "outline", size: "icon", asChild: !0, children: /* @__PURE__ */ jsxDEV3("a", { href: root.social.github, target: "_blank", rel: "noreferrer", children: /* @__PURE__ */ jsxDEV3(Github, {}, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 69,
+              columnNumber: 17
+            }, this) }, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 68,
+              columnNumber: 15
+            }, this) }, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 67,
+              columnNumber: 13
+            }, this),
+            root.social.youtube && /* @__PURE__ */ jsxDEV3(Button, { variant: "outline", size: "icon", asChild: !0, children: /* @__PURE__ */ jsxDEV3("a", { href: root.social.youtube, target: "_blank", rel: "noreferrer", children: /* @__PURE__ */ jsxDEV3(Youtube, {}, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 76,
+              columnNumber: 17
+            }, this) }, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 75,
+              columnNumber: 15
+            }, this) }, void 0, !1, {
+              fileName: "src/components/Header/Header.tsx",
+              lineNumber: 74,
+              columnNumber: 13
+            }, this)
+          ] }, void 0, !0, {
+            fileName: "src/components/Header/Header.tsx",
+            lineNumber: 47,
+            columnNumber: 9
+          }, this)
+        ]
+      },
+      void 0,
+      !0,
+      {
+        fileName: "src/components/Header/Header.tsx",
+        lineNumber: 22,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV3(
+      Button,
+      {
+        variant: "secondary",
+        className: "fixed top-4 left-4 md:hidden z-50",
+        onClick: () => console.log("clicked"),
+        children: /* @__PURE__ */ jsxDEV3(Menu, {}, void 0, !1, {
+          fileName: "src/components/Header/Header.tsx",
+          lineNumber: 87,
+          columnNumber: 9
+        }, this)
+      },
+      void 0,
+      !1,
+      {
+        fileName: "src/components/Header/Header.tsx",
+        lineNumber: 82,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, !0, {
     fileName: "src/components/Header/Header.tsx",
-    lineNumber: 14,
-    columnNumber: 13
-  }, this)) }, void 0, !1, {
-    fileName: "src/components/Header/Header.tsx",
-    lineNumber: 11,
-    columnNumber: 7
-  }, this) }, void 0, !1, {
-    fileName: "src/components/Header/Header.tsx",
-    lineNumber: 10,
+    lineNumber: 21,
     columnNumber: 5
   }, this);
 };
@@ -265,13 +504,13 @@ import { useRef } from "react";
 import { jsxDEV as jsxDEV4 } from "react/jsx-dev-runtime";
 var Layout = ({ children }) => {
   let mainRef = useRef(null);
-  return /* @__PURE__ */ jsxDEV4("div", { children: [
+  return /* @__PURE__ */ jsxDEV4("div", { className: "flex", children: [
     /* @__PURE__ */ jsxDEV4(Header, {}, void 0, !1, {
       fileName: "src/components/Layout/Layout.tsx",
       lineNumber: 13,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ jsxDEV4("main", { ref: mainRef, children }, void 0, !1, {
+    /* @__PURE__ */ jsxDEV4("main", { className: "w-max", ref: mainRef, children }, void 0, !1, {
       fileName: "src/components/Layout/Layout.tsx",
       lineNumber: 14,
       columnNumber: 7
@@ -284,7 +523,7 @@ var Layout = ({ children }) => {
 };
 
 // src/globals.css
-var globals_default = "/build/_assets/globals-UJTH6DGR.css";
+var globals_default = "/build/_assets/globals-RDMKISYC.css";
 
 // src/root.tsx
 import { jsxDEV as jsxDEV5 } from "react/jsx-dev-runtime";
@@ -331,22 +570,22 @@ var links = () => [
     columnNumber: 7
   }, this),
   /* @__PURE__ */ jsxDEV5("body", { children: [
-    children,
+    /* @__PURE__ */ jsxDEV5(Scripts, {}, void 0, !1, {
+      fileName: "src/root.tsx",
+      lineNumber: 42,
+      columnNumber: 9
+    }, this),
     /* @__PURE__ */ jsxDEV5(ScrollRestoration, {}, void 0, !1, {
       fileName: "src/root.tsx",
       lineNumber: 43,
       columnNumber: 9
     }, this),
-    /* @__PURE__ */ jsxDEV5(Scripts, {}, void 0, !1, {
+    /* @__PURE__ */ jsxDEV5(LiveReload, {}, void 0, !1, {
       fileName: "src/root.tsx",
       lineNumber: 44,
       columnNumber: 9
     }, this),
-    /* @__PURE__ */ jsxDEV5(LiveReload, {}, void 0, !1, {
-      fileName: "src/root.tsx",
-      lineNumber: 45,
-      columnNumber: 9
-    }, this)
+    children
   ] }, void 0, !0, {
     fileName: "src/root.tsx",
     lineNumber: 41,
@@ -357,10 +596,11 @@ var links = () => [
   lineNumber: 34,
   columnNumber: 5
 }, this), root_default = App;
-async function loader({ request, context }) {
+async function loader() {
   let response = await SanityClient.fetch(ROOT_QUERY);
   return defer({
-    navigation: response.navigation
+    navigation: response.navigation,
+    social: response.social
   });
 }
 
@@ -376,78 +616,30 @@ var meta = () => [
   { name: "description", content: "Welcome to Remix!" }
 ];
 function Index() {
-  return /* @__PURE__ */ jsxDEV6("div", { style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }, children: [
-    /* @__PURE__ */ jsxDEV6("h1", { children: "Welcome to Remix" }, void 0, !1, {
-      fileName: "src/routes/_index.tsx",
-      lineNumber: 13,
-      columnNumber: 7
-    }, this),
-    /* @__PURE__ */ jsxDEV6("ul", { children: [
-      /* @__PURE__ */ jsxDEV6("li", { children: /* @__PURE__ */ jsxDEV6(
-        "a",
-        {
-          target: "_blank",
-          href: "https://remix.run/tutorials/blog",
-          rel: "noreferrer",
-          children: "15m Quickstart Blog Tutorial"
-        },
-        void 0,
-        !1,
-        {
-          fileName: "src/routes/_index.tsx",
-          lineNumber: 16,
-          columnNumber: 11
-        },
-        this
-      ) }, void 0, !1, {
+  return /* @__PURE__ */ jsxDEV6(
+    "div",
+    {
+      className: "w-[100%]",
+      style: { fontFamily: "system-ui, sans-serif", lineHeight: "1.8" },
+      children: /* @__PURE__ */ jsxDEV6("h1", { children: "Welcome to Remix" }, void 0, !1, {
         fileName: "src/routes/_index.tsx",
-        lineNumber: 15,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ jsxDEV6("li", { children: /* @__PURE__ */ jsxDEV6(
-        "a",
-        {
-          target: "_blank",
-          href: "https://remix.run/tutorials/jokes",
-          rel: "noreferrer",
-          children: "Deep Dive Jokes App Tutorial"
-        },
-        void 0,
-        !1,
-        {
-          fileName: "src/routes/_index.tsx",
-          lineNumber: 25,
-          columnNumber: 11
-        },
-        this
-      ) }, void 0, !1, {
-        fileName: "src/routes/_index.tsx",
-        lineNumber: 24,
-        columnNumber: 9
-      }, this),
-      /* @__PURE__ */ jsxDEV6("li", { children: /* @__PURE__ */ jsxDEV6("a", { target: "_blank", href: "https://remix.run/docs", rel: "noreferrer", children: "Remix Docs" }, void 0, !1, {
-        fileName: "src/routes/_index.tsx",
-        lineNumber: 34,
-        columnNumber: 11
-      }, this) }, void 0, !1, {
-        fileName: "src/routes/_index.tsx",
-        lineNumber: 33,
-        columnNumber: 9
+        lineNumber: 16,
+        columnNumber: 7
       }, this)
-    ] }, void 0, !0, {
+    },
+    void 0,
+    !1,
+    {
       fileName: "src/routes/_index.tsx",
-      lineNumber: 14,
-      columnNumber: 7
-    }, this)
-  ] }, void 0, !0, {
-    fileName: "src/routes/_index.tsx",
-    lineNumber: 12,
-    columnNumber: 5
-  }, this);
+      lineNumber: 12,
+      columnNumber: 5
+    },
+    this
+  );
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-7ACPLGJF.js", imports: ["/build/_shared/chunk-BA6NHEY4.js", "/build/_shared/chunk-E3M2U2UG.js", "/build/_shared/chunk-NRH5LTJ7.js", "/build/_shared/chunk-TSUL3J54.js", "/build/_shared/chunk-K6PKGSTD.js", "/build/_shared/chunk-H5ZE7JVG.js", "/build/_shared/chunk-O4OKU2LD.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-YF2VO2O2.js", imports: ["/build/_shared/chunk-XDT5BQM4.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-5PQL67TW.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "76d2aad2", hmr: { runtime: "/build/_shared/chunk-TSUL3J54.js", timestamp: 1716106040106 }, url: "/build/manifest-76D2AAD2.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-7ACPLGJF.js", imports: ["/build/_shared/chunk-BA6NHEY4.js", "/build/_shared/chunk-E3M2U2UG.js", "/build/_shared/chunk-NRH5LTJ7.js", "/build/_shared/chunk-TSUL3J54.js", "/build/_shared/chunk-K6PKGSTD.js", "/build/_shared/chunk-H5ZE7JVG.js", "/build/_shared/chunk-O4OKU2LD.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-2MHIJK7Q.js", imports: ["/build/_shared/chunk-XDT5BQM4.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-HMUX75EC.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "0b81c9c6", hmr: { runtime: "/build/_shared/chunk-TSUL3J54.js", timestamp: 1721632239243 }, url: "/build/manifest-0B81C9C6.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

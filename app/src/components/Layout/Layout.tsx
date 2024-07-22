@@ -9,9 +9,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const mainRef = useRef<HTMLElement>(null);
 
   return (
-    <div>
+    <div className="flex">
       <Header />
-      <main ref={mainRef}>{children}</main>
+      <main className="w-max" ref={mainRef}>
+        {children}
+      </main>
     </div>
   );
 };
