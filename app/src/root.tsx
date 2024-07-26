@@ -9,7 +9,7 @@ import {
   ScrollRestoration,
   defer,
 } from "@remix-run/react";
-import { SanityClient } from "@app/utils/utils";
+import { SanityClient } from "@root/server";
 import { ROOT_QUERY } from "@app/graphql/queries/root";
 import { Layout } from "@app/components/Layout/Layout";
 import styles from "@app/globals.css";

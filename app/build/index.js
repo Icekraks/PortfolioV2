@@ -129,13 +129,8 @@ import {
   defer
 } from "@remix-run/react";
 
-// src/utils/utils.ts
-import { clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+// server.ts
 import { createClient } from "@sanity/client";
-function cn(...inputs) {
-  return twMerge(clsx(inputs));
-}
 var SanityClient = createClient({
   projectId: process.env.SANITY_PROJECT_ID,
   dataset: process.env.SANITY_DATASET,
@@ -188,6 +183,15 @@ import { useRouteLoaderData } from "@remix-run/react";
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva } from "class-variance-authority";
+
+// src/utils/utils.ts
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+
+// src/theme/ui/button.tsx
 import { jsxDEV as jsxDEV2 } from "react/jsx-dev-runtime";
 var buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -381,15 +385,6 @@ var Header = () => {
             lineNumber: 28,
             columnNumber: 9
           }, this),
-          /* @__PURE__ */ jsxDEV3(Button, { variant: "secondary", onClick: (e) => console.log(e, "clicked"), children: /* @__PURE__ */ jsxDEV3(Menu, {}, void 0, !1, {
-            fileName: "src/components/Header/Header.tsx",
-            lineNumber: 45,
-            columnNumber: 11
-          }, this) }, void 0, !1, {
-            fileName: "src/components/Header/Header.tsx",
-            lineNumber: 44,
-            columnNumber: 9
-          }, this),
           /* @__PURE__ */ jsxDEV3("div", { className: "flex md:flex-col justify-center items-center gap-2 md:gap-8", children: [
             root.social.email && /* @__PURE__ */ jsxDEV3(Button, { variant: "outline", size: "icon", asChild: !0, children: /* @__PURE__ */ jsxDEV3(
               "a",
@@ -399,7 +394,7 @@ var Header = () => {
                 rel: "noreferrer",
                 children: /* @__PURE__ */ jsxDEV3(Mail, {}, void 0, !1, {
                   fileName: "src/components/Header/Header.tsx",
-                  lineNumber: 55,
+                  lineNumber: 53,
                   columnNumber: 17
                 }, this)
               },
@@ -407,57 +402,57 @@ var Header = () => {
               !1,
               {
                 fileName: "src/components/Header/Header.tsx",
-                lineNumber: 50,
+                lineNumber: 48,
                 columnNumber: 15
               },
               this
             ) }, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 49,
+              lineNumber: 47,
               columnNumber: 13
             }, this),
             root.social.linkedin && /* @__PURE__ */ jsxDEV3(Button, { variant: "outline", size: "icon", asChild: !0, children: /* @__PURE__ */ jsxDEV3("a", { href: root.social.linkedin, target: "_blank", rel: "noreferrer", children: /* @__PURE__ */ jsxDEV3(Linkedin, {}, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 62,
+              lineNumber: 60,
               columnNumber: 17
             }, this) }, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 61,
+              lineNumber: 59,
               columnNumber: 15
             }, this) }, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 60,
+              lineNumber: 58,
               columnNumber: 13
             }, this),
             root.social.github && /* @__PURE__ */ jsxDEV3(Button, { variant: "outline", size: "icon", asChild: !0, children: /* @__PURE__ */ jsxDEV3("a", { href: root.social.github, target: "_blank", rel: "noreferrer", children: /* @__PURE__ */ jsxDEV3(Github, {}, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 69,
+              lineNumber: 67,
               columnNumber: 17
             }, this) }, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 68,
+              lineNumber: 66,
               columnNumber: 15
             }, this) }, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 67,
+              lineNumber: 65,
               columnNumber: 13
             }, this),
             root.social.youtube && /* @__PURE__ */ jsxDEV3(Button, { variant: "outline", size: "icon", asChild: !0, children: /* @__PURE__ */ jsxDEV3("a", { href: root.social.youtube, target: "_blank", rel: "noreferrer", children: /* @__PURE__ */ jsxDEV3(Youtube, {}, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 76,
+              lineNumber: 74,
               columnNumber: 17
             }, this) }, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 75,
+              lineNumber: 73,
               columnNumber: 15
             }, this) }, void 0, !1, {
               fileName: "src/components/Header/Header.tsx",
-              lineNumber: 74,
+              lineNumber: 72,
               columnNumber: 13
             }, this)
           ] }, void 0, !0, {
             fileName: "src/components/Header/Header.tsx",
-            lineNumber: 47,
+            lineNumber: 45,
             columnNumber: 9
           }, this)
         ]
@@ -476,10 +471,10 @@ var Header = () => {
       {
         variant: "secondary",
         className: "fixed top-4 left-4 md:hidden z-50",
-        onClick: () => console.log("clicked"),
+        onClick: () => setIsMenuOpen(!0),
         children: /* @__PURE__ */ jsxDEV3(Menu, {}, void 0, !1, {
           fileName: "src/components/Header/Header.tsx",
-          lineNumber: 87,
+          lineNumber: 85,
           columnNumber: 9
         }, this)
       },
@@ -487,7 +482,7 @@ var Header = () => {
       !1,
       {
         fileName: "src/components/Header/Header.tsx",
-        lineNumber: 82,
+        lineNumber: 80,
         columnNumber: 7
       },
       this
@@ -639,7 +634,7 @@ function Index() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-7ACPLGJF.js", imports: ["/build/_shared/chunk-BA6NHEY4.js", "/build/_shared/chunk-E3M2U2UG.js", "/build/_shared/chunk-NRH5LTJ7.js", "/build/_shared/chunk-TSUL3J54.js", "/build/_shared/chunk-K6PKGSTD.js", "/build/_shared/chunk-H5ZE7JVG.js", "/build/_shared/chunk-O4OKU2LD.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-2MHIJK7Q.js", imports: ["/build/_shared/chunk-XDT5BQM4.js"], hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-HMUX75EC.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "0b81c9c6", hmr: { runtime: "/build/_shared/chunk-TSUL3J54.js", timestamp: 1721632239243 }, url: "/build/manifest-0B81C9C6.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-NUFJYMC6.js", imports: ["/build/_shared/chunk-BA6NHEY4.js", "/build/_shared/chunk-E3M2U2UG.js", "/build/_shared/chunk-NRH5LTJ7.js", "/build/_shared/chunk-TSUL3J54.js", "/build/_shared/chunk-K6PKGSTD.js", "/build/_shared/chunk-H5ZE7JVG.js", "/build/_shared/chunk-O4OKU2LD.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-FUOLDCOE.js", imports: void 0, hasAction: !1, hasLoader: !0, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-BMDHQEVH.js", imports: void 0, hasAction: !1, hasLoader: !1, hasClientAction: !1, hasClientLoader: !1, hasErrorBoundary: !1 } }, version: "87307dee", hmr: { runtime: "/build/_shared/chunk-TSUL3J54.js", timestamp: 1721998374856 }, url: "/build/manifest-87307DEE.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1, v3_relativeSplatPath: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {

@@ -41,9 +41,7 @@ export const Header: React.FC = () => {
             );
           })}
         </div>
-        <Button variant="secondary" onClick={(e) => console.log(e, "clicked")}>
-          <Menu />
-        </Button>
+
         <div className="flex md:flex-col justify-center items-center gap-2 md:gap-8">
           {root.social.email && (
             <Button variant="outline" size="icon" asChild>
@@ -82,7 +80,7 @@ export const Header: React.FC = () => {
       <Button
         variant="secondary"
         className="fixed top-4 left-4 md:hidden z-50"
-        onClick={() => console.log("clicked")}
+        onClick={() => setIsMenuOpen(true)}
       >
         <Menu />
       </Button>
