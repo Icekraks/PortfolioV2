@@ -20,6 +20,7 @@ export default {
     extend: {
       colors: {
         border: "#b58900",
+        borderAlt: "#fdf6e3",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--primary))",
@@ -29,8 +30,8 @@ export default {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#fdf6e3",
+          foreground: "#586e75",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
