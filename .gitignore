@@ -2,8 +2,8 @@ node_modules
 .cache
 build/
 dist/
-app/build/
-app/dist/
+app/build/*
+app/dist/*
 /.mf
 .env
 .env.production
@@ -18,3 +18,4 @@ admin/schema.ts
 app/src/types/schema.ts
 admin/exported/*.tar.gz
 *.csv
+
