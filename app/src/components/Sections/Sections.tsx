@@ -1,7 +1,7 @@
 import { SectionsTypes } from "@app/types/global";
 import { ObjectSections } from "@app/types/schema";
 import Hero from "@app/components/Sections/Hero/Hero";
-// import Text from "@app/components/Sections/Text";
+import Text from "@app/components/Sections/Text/Text";
 
 type Props = {
   sections: ObjectSections;
@@ -10,7 +10,7 @@ type Props = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const sectionsComponents: any = {
   Hero,
-  // Text,
+  Text,
 };
 
 const Sections: React.FC<Props> = ({ sections }) => {
