@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Button } from "@app/theme/ui/button";
-import { Link, RootLoaderData } from "@app/types/schema";
+import { Link, RootLoaderData } from "@app/types/global";
 import { useRouteLoaderData } from "@remix-run/react";
 import { HeaderFooter } from "@app/components/Header/HeaderFooter";
 import { cn } from "@app/utils/utils";
-import { CrossIcon, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export type HeaderMobileProps = {
   isOpen: boolean;
@@ -28,6 +30,13 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
       >
         <Menu />
       </Button>
+      <div
+        onClick={() => setIsOpen(false)}
+        className={cn(
+          "fixed top-0 left-0 w-full h-full z-[49] bg-black opacity-20 cursor-pointer",
+          isOpen ? "block" : "hidden"
+        )}
+      />
       <div
         className={cn(
           "md:hidden fixed transition-transform top-0 left-0 w-[90dvw] bg-[#002b36] h-[100dvh] px-4 pt-4 pb-4 z-50",

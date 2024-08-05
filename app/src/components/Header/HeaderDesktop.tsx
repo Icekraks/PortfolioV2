@@ -1,5 +1,5 @@
 import { useRouteLoaderData } from "@remix-run/react";
-import { Link, RootLoaderData } from "@app/types/schema";
+import { Link, RootLoaderData } from "@app/types/global";
 import { Button } from "@app/theme/ui/button";
 import { Menu } from "lucide-react";
 import { cn } from "@app/utils/utils";

@@ -5,17 +5,14 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity dev",
-    "start": "pnpm dev",
+    "start": "pnpm run dev",
+    "dev": "pnpm run schema:typegen && sanity dev",
     "serve": "sanity start",
     "build": "sanity build",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "schema:typegen": "pnpm sanity-codegen"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
     "@sanity/vision": "^3.25.0",
     "react": "^18.2.0",

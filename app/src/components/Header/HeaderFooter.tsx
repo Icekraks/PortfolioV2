@@ -1,4 +1,4 @@
-import { SocialMedia } from "@app/types/schema";
+import { SocialMedia } from "@app/types/global";
 import React from "react";
 import { Button } from "@app/theme/ui/button";
 import { Github, Linkedin, Mail, Youtube } from "lucide-react";

@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'home',
+  name: 'pageHomepage',
   title: 'Home',
   type: 'document',
   fields: [
@@ -13,13 +13,19 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
+      type: 'string',
+    }),
+    defineField({
+      name: 'sections',
+      title: 'Sections',
+      type: 'objectSections',
     }),
     defineField({
       name: 'metaTitle',
       title: 'Meta Title',
       type: 'string',
     }),
+
     defineField({
       name: 'metaDescription',
       title: 'Meta Description',

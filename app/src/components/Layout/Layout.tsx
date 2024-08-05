@@ -11,7 +11,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col md:flex-row">
       <Header />
-      <main className="w-max" ref={mainRef}>
+      <main className="w-full" ref={mainRef}>
         {children}
       </main>
     </div>

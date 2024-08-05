@@ -1,14 +1,7 @@
-/**
- * This is intended to be a basic starting point for linting in your app.
- * It relies on recommended configs out of the box for simplicity, but you can
- * and should modify this configuration to best suit your team's needs.
- */
-
-/** @type {import('eslint').Linter.Config} */
 module.exports = {
-  root: true,
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: 2020,
     sourceType: "module",
     ecmaFeatures: {
       jsx: true,
@@ -16,68 +9,78 @@ module.exports = {
   },
   env: {
     browser: true,
-    commonjs: true,
+    node: true,
     es6: true,
   },
-
-  // Base config
-  extends: ["eslint:recommended"],
-
-  overrides: [
-    // React
-    {
-      files: ["**/*.{js,jsx,ts,tsx}"],
-      plugins: ["react", "jsx-a11y"],
-      extends: [
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-      ],
-      settings: {
-        react: {
-          version: "detect",
-        },
-        formComponents: ["Form"],
-        linkComponents: [
-          { name: "Link", linkAttribute: "to" },
-          { name: "NavLink", linkAttribute: "to" },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+  plugins: ["@typescript-eslint", "react", "prettier", "unused-imports", "simple-import-sort", "chakra-ui"],
+  extends: [
+    "@remix-run/eslint-config",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  rules: {
+    "react/jsx-curly-brace-presence": ["error", { props: "never", children: "never" }],
+    "no-async-promise-executor": "off",
+    "no-useless-constructor": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": "error",
+    "react/react-in-jsx-scope": "off",
+    "chakra-ui/props-order": "error",
+    "chakra-ui/props-shorthand": [
+      "error",
+      {
+        noShorthand: true,
+        applyToAllComponents: true,
+      },
+    ],
+    "chakra-ui/require-specific-component": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+        semi: false,
+        singleQuote: false,
+        parser: "typescript",
+        bracketSpacing: true,
+      },
+    ],
+    "simple-import-sort/imports": [
+      "error",
+      {
+        groups: [
+          // Packages `react` related packages come first.
+          ["^react", "^@?\\w"],
+          // Internal packages.
+          ["^(@root)(/.*|$)"],
+          ["^(@app)(/.*|$)"],
+          // Side effect imports.
+          ["^\\u0000"],
+          // Other relative imports. Put same-folder imports and `.` last.
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
         ],
-        "import/resolver": {
-          typescript: {},
-        },
       },
-    },
-
-    // Typescript
+    ],
+  },
+  overrides: [
     {
-      files: ["**/*.{ts,tsx}"],
-      plugins: ["@typescript-eslint", "import"],
-      parser: "@typescript-eslint/parser",
-      settings: {
-        "import/internal-regex": "^~/",
-        "import/resolver": {
-          node: {
-            extensions: [".ts", ".tsx"],
-          },
-          typescript: {
-            alwaysTryTypes: true,
-          },
-        },
-      },
-      extends: [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
-      ],
-    },
-
-    // Node
-    {
-      files: [".eslintrc.js"],
-      env: {
-        node: true,
+      files: ["*.js"],
+      rules: {
+        "@typescript-eslint/no-var-requires": "off",
       },
     },
   ],
-};
+}

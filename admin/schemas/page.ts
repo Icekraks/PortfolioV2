@@ -19,6 +19,11 @@ export default defineType({
         maxLength: 96,
       },
     }),
+    defineField({
+      name: 'sections',
+      title: 'Sections',
+      type: 'objectSections',
+    }),
   ],
   preview: {
     select: {
