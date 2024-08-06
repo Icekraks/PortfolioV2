@@ -13,5 +13,13 @@ export default defineType({
       title: 'Text',
       type: 'objectText',
     },
+    {
+      title: 'Tags',
+      type: 'objectTags',
+    },
+    {
+      title: 'Text Columns',
+      type: 'objectTextColumns',
+    },
   ],
 })

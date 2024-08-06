@@ -17,15 +17,31 @@ export const HeaderDesktop: React.FC = () => {
       <div className="flex flex-col gap-4">
         {root.navigation.header.links.map((link: Link, index: number) => {
           return (
-            <Button key={index} variant="secondary" asChild>
-              <a
-                key={index}
-                href={link.link}
-                target={link.external ? "_blank" : ""}
-                rel="noreferrer"
-              >
-                {link.title}
-              </a>
+            <Button
+              key={index}
+              variant="secondary"
+              asChild={!link.link.includes("#")}
+              onClick={() => {
+                if (link.link.includes("#")) {
+                  const element = document.querySelector(link.link);
+                  if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                  }
+                }
+              }}
+            >
+              {!link.link.includes("#") ? (
+                <a
+                  key={index}
+                  href={link.link}
+                  target={link.external ? "_blank" : ""}
+                  rel="noreferrer"
+                >
+                  {link.title}
+                </a>
+              ) : (
+                link.title
+              )}
             </Button>
           );
         })}

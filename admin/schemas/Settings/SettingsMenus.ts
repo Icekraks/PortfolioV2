@@ -6,6 +6,12 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'headerTitle',
+      title: 'Header Title',
+      type: 'string',
+      initialValue: "Felix's Portfolio",
+    }),
+    defineField({
       name: 'header',
       title: 'Header',
       type: 'reference',

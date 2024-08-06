@@ -20,16 +20,20 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
 
   return (
     <>
-      <Button
-        variant="secondary"
-        className="md:hidden z-50"
-        onClick={() => {
-          console.log("clicked");
-          setIsOpen(!isOpen);
-        }}
-      >
-        <Menu />
-      </Button>
+      <div className="flex items-center justify-between">
+        <Button
+          variant="secondary"
+          className="md:hidden z-50"
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+        >
+          <Menu />
+        </Button>
+        {root.navigation.headerTitle ? (
+          <h4>{root.navigation.headerTitle}</h4>
+        ) : null}
+      </div>
       <div
         onClick={() => setIsOpen(false)}
         className={cn(
@@ -52,15 +56,36 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
           <div className="flex flex-col gap-4 flex-grow overflow-y-auto py-4">
             {root.navigation.header.links.map((link: Link, index: number) => {
               return (
-                <Button key={index} variant="secondary" asChild>
-                  <a
-                    key={index}
-                    href={link.link}
-                    target={link.external ? "_blank" : ""}
-                    rel="noreferrer"
-                  >
-                    {link.title}
-                  </a>
+                <Button
+                  key={index}
+                  variant="secondary"
+                  asChild={!link.link.includes("#")}
+                  onClick={() => {
+                    if (link.link.includes("#")) {
+                      const element = document.querySelector(link.link);
+                      if (element) {
+                        setIsOpen(false);
+                        if (index === 0) {
+                          window.scrollTo(0, 0);
+                        } else {
+                          element.scrollIntoView({ behavior: "smooth" });
+                        }
+                      }
+                    }
+                  }}
+                >
+                  {!link.link.includes("#") ? (
+                    <a
+                      key={index}
+                      href={link.link}
+                      target={link.external ? "_blank" : ""}
+                      rel="noreferrer"
+                    >
+                      {link.title}
+                    </a>
+                  ) : (
+                    link.title
+                  )}
                 </Button>
               );
             })}

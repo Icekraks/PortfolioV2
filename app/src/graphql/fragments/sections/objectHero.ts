@@ -8,7 +8,9 @@ export const HERO_SECTION_FRAGMENT = `
   subtitle,
   description,
   file {
-    ...,
+    asset->{
+      ...
+    }
   },
   image {
     ${IMAGE_FRAGMENT}

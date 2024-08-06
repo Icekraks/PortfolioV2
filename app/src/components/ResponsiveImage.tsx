@@ -2,12 +2,14 @@ export type ImageProps = {
   src: string;
   alt: string;
   className?: string;
+  aspectRatio?: number;
 };
 
 export const ResponsiveImage: React.FC<ImageProps> = ({
   src,
   alt,
   className = "object-cover",
+  aspectRatio = 1,
 }) => {
   return (
     <picture>

@@ -142,6 +142,13 @@ export interface SettingsMenus extends SanityDocument {
   _type: "settingsMenus";
 
   /**
+   * Header Title — `string`
+   *
+   *
+   */
+  headerTitle?: string;
+
+  /**
    * Header — `reference`
    *
    *
@@ -194,7 +201,10 @@ export interface SettingsSocial extends SanityDocument {
 }
 
 export type ObjectSections = Array<
-  SanityKeyed<ObjectHero> | SanityKeyed<ObjectText>
+  | SanityKeyed<ObjectHero>
+  | SanityKeyed<ObjectText>
+  | SanityKeyed<ObjectTags>
+  | SanityKeyed<ObjectTextColumns>
 >;
 
 export type Link = {
@@ -286,6 +296,72 @@ export type ObjectText = {
    *
    */
   description?: string;
+};
+
+export type ObjectTextColumns = {
+  _type: "objectTextColumns";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Columns — `array`
+   *
+   *
+   */
+  columns?: Array<
+    SanityKeyed<{
+      /**
+       * Title — `string`
+       *
+       *
+       */
+      title?: string;
+
+      /**
+       * Description — `text`
+       *
+       *
+       */
+      description?: string;
+    }>
+  >;
+};
+
+export type ObjectTags = {
+  _type: "objectTags";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Categories — `array`
+   *
+   *
+   */
+  categories?: Array<
+    SanityKeyed<{
+      /**
+       * Text — `string`
+       *
+       *
+       */
+      text?: string;
+
+      /**
+       * Tags — `array`
+       *
+       *
+       */
+      tags?: Array<SanityKeyed<string>>;
+    }>
+  >;
 };
 
 export type Documents =

@@ -2,6 +2,7 @@ import { SectionsTypes } from "@app/types/global";
 import { ObjectSections } from "@app/types/schema";
 import Hero from "@app/components/Sections/Hero/Hero";
 import Text from "@app/components/Sections/Text/Text";
+import Tags from "@app/components/Sections/Tags/Tags";
 
 type Props = {
   sections: ObjectSections;
@@ -11,6 +12,7 @@ type Props = {
 const sectionsComponents: any = {
   Hero,
   Text,
+  Tags,
 };
 
 const Sections: React.FC<Props> = ({ sections }) => {
