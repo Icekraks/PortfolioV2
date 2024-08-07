@@ -4,6 +4,7 @@ build/
 dist/
 app/build/*
 app/dist/*
+app/build/**/*
 /.mf
 .env
 .env.production
