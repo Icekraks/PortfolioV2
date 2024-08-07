@@ -66,7 +66,11 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
                       if (element) {
                         setIsOpen(false);
                         if (index === 0) {
-                          window.scrollTo(0, 0);
+                          window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: "smooth",
+                          });
                         } else {
                           element.scrollIntoView({ behavior: "smooth" });
                         }

@@ -3,6 +3,8 @@ import { ObjectSections } from "@app/types/schema";
 import Hero from "@app/components/Sections/Hero/Hero";
 import Text from "@app/components/Sections/Text/Text";
 import Tags from "@app/components/Sections/Tags/Tags";
+import Featured from "@app/components/Sections/Featured/Featured";
+import { cn } from "@app/utils/utils";
 
 type Props = {
   sections: ObjectSections;
@@ -13,6 +15,7 @@ const sectionsComponents: any = {
   Hero,
   Text,
   Tags,
+  Featured,
 };
 
 const Sections: React.FC<Props> = ({ sections }) => {
@@ -28,6 +31,7 @@ const Sections: React.FC<Props> = ({ sections }) => {
             key={section._key}
             id={`section-${index}`}
             data-section-name={SectionName?.toLowerCase()}
+            className={cn(index !== 0 && "scroll-mt-10 md:scroll-mt-0")}
           >
             <SectionComponent
               name={SectionName}

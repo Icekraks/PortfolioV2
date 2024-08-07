@@ -2,7 +2,6 @@ import React from "react";
 import type { ObjectHero } from "@app/types/schema";
 import { ResponsiveImage } from "@app/components/ResponsiveImage";
 import { Button } from "@app/theme/ui/button";
-import { Link } from "@remix-run/react";
 
 type HeroProps = ObjectHero & {
   sectionIndex: number;
@@ -17,7 +16,7 @@ const Hero: React.FC<HeroProps> = ({
   image,
 }) => {
   return (
-    <div className="bg-[#fdf6e3] relative py-12 px-8 md:py-24 md:px-16 h-[100dvh] max-h-[750px] md:max-h-[700px]">
+    <div className="bg-[#fdf6e3] relative py-12 px-8 lg:py-16 2xl:py-24 md:px-16 h-[100dvh] max-h-[750px] md:max-h-[1000px]">
       <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-x-[10rem] gap-y-[2.5rem] max-w-[1440px] mx-auto">
         <div className="flex flex-col gap-3">
           <p>

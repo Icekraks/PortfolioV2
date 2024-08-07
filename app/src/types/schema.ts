@@ -200,6 +200,66 @@ export interface SettingsSocial extends SanityDocument {
   youtube?: string;
 }
 
+export type ObjectFeatured = {
+  _type: "objectFeatured";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Featured Sites — `array`
+   *
+   *
+   */
+  featuredSites?: Array<SanityKeyed<FeaturedObject>>;
+};
+
+export type FeaturedObject = {
+  _type: "featuredObject";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * URL — `url`
+   *
+   *
+   */
+  url?: string;
+};
+
 export type ObjectSections = Array<
   | SanityKeyed<ObjectHero>
   | SanityKeyed<ObjectText>

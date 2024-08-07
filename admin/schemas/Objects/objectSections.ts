@@ -21,5 +21,9 @@ export default defineType({
       title: 'Text Columns',
       type: 'objectTextColumns',
     },
+    {
+      title: 'Featured Sites',
+      type: 'objectFeatured',
+    },
   ],
 })
