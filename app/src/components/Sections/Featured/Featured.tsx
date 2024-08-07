@@ -24,7 +24,7 @@ const Featured: React.FC<FeaturedProps> = ({
           {featuredSites &&
             featuredSites.map((site, index) => {
               return (
-                <Link to={site.url} key={index}>
+                <a href={site.url} target="_blank" key={index}>
                   <div className="flex flex-col md:flex-row gap-x-8">
                     <div className="w-full md:w-[34%] mb-4 lg:mb-0">
                       <ImageResponsive image={site.image} aspectRatio={0.75} />
@@ -36,7 +36,7 @@ const Featured: React.FC<FeaturedProps> = ({
                       <p className="text-primary">{site.description}</p>
                     </div>
                   </div>
-                </Link>
+                </a>
               );
             })}
         </div>

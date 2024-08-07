@@ -1,4 +1,5 @@
-import { Header } from "../Header/Header";
+import { Header } from "@app/components/Header/Header";
+import Footer from "@app/components/Footer/Footer";
 import { useRef } from "react";
 
 type LayoutProps = {
@@ -13,6 +14,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Header />
       <main className="w-full bg-[#fdf6e3]" ref={mainRef}>
         {children}
+        <Footer />
       </main>
     </div>
   );

@@ -19,15 +19,15 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <>
-      <div className="relative py-12 px-8 lg:py-16 2xl:py-24 md:px-16 h-[100dvh] max-h-[750px] md:max-h-[1000px]">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-x-[10rem] gap-y-[2.5rem] max-w-[1440px] mx-auto">
+      <div className="relative py-12 px-8 lg:py-16 2xl:py-24 lg:px-16 h-[100dvh] max-h-[750px] md:max-h-[1000px]">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-x-[10rem] gap-y-[2.5rem] max-w-[1440px] mx-auto">
           <div className="flex flex-col gap-3">
             <p>
               {pretitle && (
                 <span className="text-[#b58900] font-bold">{pretitle}</span>
               )}
             </p>
-            <h1 className="text-4xl md:text-6xl font-bold text-[#002b36]">
+            <h1 className="text-4xl lg:text-6xl font-bold text-[#002b36]">
               {title}
             </h1>
             <h4 className="text-[#cb4b16]">{subtitle}</h4>

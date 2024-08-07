@@ -11,7 +11,7 @@ const Text: React.FC<TextProps> = ({ title, description }) => {
         <h2 className="text-primary text-2xl md:text-4xl font-bold mb-4 w-full">
           {title}
         </h2>
-        <p className="text-primary md:px-16">{description}</p>
+        <p className="text-primary md:px-10 lg:px-16">{description}</p>
       </div>
     </div>
   );
