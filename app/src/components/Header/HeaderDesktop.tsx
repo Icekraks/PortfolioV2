@@ -21,6 +21,7 @@ export const HeaderDesktop: React.FC = () => {
               key={index}
               variant="secondary"
               asChild={!link.link.includes("#")}
+              className="text-wrap"
               onClick={() => {
                 if (link.link.includes("#")) {
                   const element = document.querySelector(link.link);

@@ -7,7 +7,7 @@ type TagsProps = ObjectTags & {
 
 const Tags: React.FC<TagsProps> = ({ title, categories }) => {
   return (
-    <div className="bg-[#fdf6e3] relative py-12 px-8 md:py-24 md:px-16">
+    <div className="relative py-12 px-8 md:py-24 md:px-16">
       <div className="max-w-[1440px] mx-auto mb-8">
         <h2 className="text-primary text-2xl md:text-4xl font-bold">{title}</h2>
         <div className="flex flex-col md:flex-row justify-center mt-8 md:px-10 lg:px-16 w-full gap-8">
