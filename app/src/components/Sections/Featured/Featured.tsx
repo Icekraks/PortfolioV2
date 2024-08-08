@@ -1,8 +1,5 @@
 import React from "react";
 import { ObjectFeatured } from "@app/types/schema";
-import { Link } from "@remix-run/react";
-import { imageBuilder } from "@app/utils/utils";
-import { ImageResponsive } from "@app/components/ImageResponsive";
 import { ResponsiveImage } from "@app/components/ResponsiveImage";
 
 type FeaturedProps = ObjectFeatured & {
