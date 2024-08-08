@@ -265,6 +265,7 @@ export type ObjectSections = Array<
   | SanityKeyed<ObjectText>
   | SanityKeyed<ObjectTags>
   | SanityKeyed<ObjectTextColumns>
+  | SanityKeyed<ObjectFeatured>
 >;
 
 export type Link = {
@@ -339,6 +340,13 @@ export type ObjectHero = {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
+
+  /**
+   * Show Scroll Down — `boolean`
+   *
+   *
+   */
+  showScrollDown?: boolean;
 };
 
 export type ObjectText = {

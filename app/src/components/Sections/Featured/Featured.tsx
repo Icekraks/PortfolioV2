@@ -1,8 +1,6 @@
 import React from "react";
 import { ObjectFeatured } from "@app/types/schema";
-import { Link } from "@remix-run/react";
-import { imageBuilder } from "@app/utils/utils";
-import { ImageResponsive } from "@app/components/ImageResponsive";
+import { ResponsiveImage } from "@app/components/ResponsiveImage";
 
 type FeaturedProps = ObjectFeatured & {
   sectionIndex: number;
@@ -27,7 +25,11 @@ const Featured: React.FC<FeaturedProps> = ({
                 <a href={site.url} target="_blank" key={index}>
                   <div className="flex flex-col md:flex-row gap-x-8">
                     <div className="w-full md:w-[34%] mb-4 lg:mb-0">
-                      <ImageResponsive image={site.image} aspectRatio={0.75} />
+                      <ResponsiveImage
+                        src={site.image.asset.url}
+                        alt={site.image.asset.altText}
+                        aspectRatio={0.75}
+                      />
                     </div>
                     <div className="w-full md:w-[66%]">
                       <h4 className="text-primary text-xl md:text-2xl font-bold mb-4">
