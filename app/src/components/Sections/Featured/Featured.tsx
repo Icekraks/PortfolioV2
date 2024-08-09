@@ -14,9 +14,11 @@ const Featured: React.FC<FeaturedProps> = ({
   return (
     <div className="relative py-12 px-8 lg:py-16 2xl:py-24 md:px-16">
       <div className="max-w-[1440px] mx-auto">
-        <h2 className="text-primary text-2xl md:text-4xl font-bold mb-4">
-          {title}
-        </h2>
+        {title && (
+          <h2 className="text-primary text-2xl md:text-4xl font-bold mb-4">
+            {title}
+          </h2>
+        )}
         <p className="text-primary text-lg md:text-xl mb-8">{description}</p>
         <div className="flex flex-col gap-y-24 lg:gap-y-16 md:px-10 lg:px-16">
           {featuredSites &&

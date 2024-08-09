@@ -260,12 +260,37 @@ export type FeaturedObject = {
   url?: string;
 };
 
+export type ObjectFeaturedCarousel = {
+  _type: "objectFeaturedCarousel";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Featured Sites — `array`
+   *
+   *
+   */
+  featuredSites?: Array<SanityKeyed<FeaturedObject>>;
+};
+
 export type ObjectSections = Array<
   | SanityKeyed<ObjectHero>
   | SanityKeyed<ObjectText>
   | SanityKeyed<ObjectTags>
   | SanityKeyed<ObjectTextColumns>
   | SanityKeyed<ObjectFeatured>
+  | SanityKeyed<ObjectFeaturedCarousel>
 >;
 
 export type Link = {
