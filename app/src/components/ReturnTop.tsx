@@ -22,7 +22,7 @@ const ReturnTop: React.FC<React.PropsWithChildren> = () => {
   return (
     <Button
       className={cn(
-        "fixed bottom-4 right-12 z-50 bg-primary text-white p-2 transition-all duration-300 ease-in-out",
+        "fixed bottom-4 right-4 md:right-12 z-50 bg-primary text-white p-2 transition-all duration-300 ease-in-out",
         !scrolled && "opacity-0 pointer-events-none"
       )}
       onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
