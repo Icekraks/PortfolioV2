@@ -1,8 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Button } from "@app/theme/ui/button";
-import { Link, RootLoaderData } from "@app/types/global";
-import { useRouteLoaderData } from "@remix-run/react";
+import type { Link, RootLoaderData } from "@app/types/global";
+import { Link as RemixLink, useRouteLoaderData } from "@remix-run/react";
 import { HeaderFooter } from "@app/components/Header/HeaderFooter";
 import { cn } from "@app/utils/utils";
 import { Menu, X } from "lucide-react";
@@ -31,7 +31,9 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
           <Menu />
         </Button>
         {root.navigation.headerTitle ? (
-          <h4>{root.navigation.headerTitle}</h4>
+          <RemixLink to={"/"}>
+            <h4>{root.navigation.headerTitle}</h4>
+          </RemixLink>
         ) : null}
       </div>
       <div
