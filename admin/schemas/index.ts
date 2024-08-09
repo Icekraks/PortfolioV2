@@ -9,6 +9,7 @@ import objectTextColumns from './Objects/Sections/objectTextColumns'
 import objectTags from './Objects/Sections/objectTags'
 import objectFeatured from './Objects/Sections/objectFeatured'
 import featuredObject from './Objects/Sections/objectFeaturedObject'
+import objectFeaturedCarousel from './Objects/Sections/objectFeaturedCarousel'
 
 import navigation from './Navigation'
 import settingsMenus from './Settings/SettingsMenus'
@@ -21,6 +22,7 @@ const settings = [navigation, settingsMenus, settingsSocial]
 const objects = [
   objectFeatured,
   featuredObject,
+  objectFeaturedCarousel,
   objectSections,
   linkObject,
   objectHero,
