@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Button } from "@app/theme/ui/button";
 import { Link, RootLoaderData } from "@app/types/global";
-import { useRouteLoaderData } from "@remix-run/react";
+import { Link as RemixLink, useRouteLoaderData } from "@remix-run/react";
 import { HeaderFooter } from "@app/components/Header/HeaderFooter";
 import { cn } from "@app/utils/utils";
 import { Menu, X } from "lucide-react";
@@ -20,7 +20,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
 
   return (
     <>
-      <div className="flex items-center justify-between">
+      <div className="flex md:hidden items-center justify-between">
         <Button
           variant="secondary"
           className="md:hidden z-50"
@@ -31,7 +31,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
           <Menu />
         </Button>
         {root.navigation.headerTitle ? (
-          <h4>{root.navigation.headerTitle}</h4>
+          <h1>{root.navigation.headerTitle}</h1>
         ) : null}
       </div>
       <div
@@ -49,6 +49,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
       >
         <div className="relative h-full  flex flex-col">
           <div className="header flex">
+            <h1>{root.navigation.headerTitle}</h1>
             <Button className="ml-[auto]" onClick={() => setIsOpen(false)}>
               <X />
             </Button>
@@ -66,12 +67,14 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
                       if (element) {
                         setIsOpen(false);
                         if (index === 0) {
+                          window.location.hash = "";
                           window.scrollTo({
                             top: 0,
                             left: 0,
                             behavior: "smooth",
                           });
                         } else {
+                          window.location.hash = link.link;
                           element.scrollIntoView({ behavior: "smooth" });
                         }
                       }
@@ -79,14 +82,14 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
                   }}
                 >
                   {!link.link.includes("#") ? (
-                    <a
+                    <RemixLink
                       key={index}
-                      href={link.link}
+                      to={link.link}
                       target={link.external ? "_blank" : ""}
                       rel="noreferrer"
                     >
                       {link.title}
-                    </a>
+                    </RemixLink>
                   ) : (
                     link.title
                   )}
@@ -95,8 +98,12 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
             })}
           </div>
 
-          <div className="mt-auto pt-4">
+          <div className="mt-auto pt-4 mb-6">
             <HeaderFooter social={root.social} />
+          </div>
+
+          <div className="flex items-center justify-center">
+            <h4 className="text-secondary text-md md:text-xl">{`${new Date().getFullYear()} © Felix Hu`}</h4>
           </div>
         </div>
       </div>
