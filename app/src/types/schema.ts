@@ -82,11 +82,44 @@ export interface PageHomepage extends SanityDocument {
   title?: string;
 
   /**
-   * Description — `string`
+   * Pretitle — `string`
+   *
+   *
+   */
+  pretitle?: string;
+
+  /**
+   * Subtitle — `string`
+   *
+   *
+   */
+  subtitle?: string;
+
+  /**
+   * Description — `text`
    *
    *
    */
   description?: string;
+
+  /**
+   * File — `file`
+   *
+   *
+   */
+  file?: { _type: "file"; asset: SanityReference<any> };
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 
   /**
    * Sections — `objectSections`
@@ -265,6 +298,7 @@ export type ObjectSections = Array<
   | SanityKeyed<ObjectText>
   | SanityKeyed<ObjectTags>
   | SanityKeyed<ObjectTextColumns>
+  | SanityKeyed<ObjectFeatured>
 >;
 
 export type Link = {
@@ -339,6 +373,13 @@ export type ObjectHero = {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
+
+  /**
+   * Show Scroll Down — `boolean`
+   *
+   *
+   */
+  showScrollDown?: boolean;
 };
 
 export type ObjectText = {

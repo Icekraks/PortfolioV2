@@ -6,6 +6,7 @@ import { ChevronsDown, Mouse } from "lucide-react";
 
 type HeroProps = ObjectHero & {
   sectionIndex: number;
+  showScrollDown?: boolean;
 };
 
 const Hero: React.FC<HeroProps> = ({
@@ -15,7 +16,7 @@ const Hero: React.FC<HeroProps> = ({
   description,
   file,
   image,
-  showScrollDown,
+  showScrollDown = false,
 }) => {
   return (
     <>
