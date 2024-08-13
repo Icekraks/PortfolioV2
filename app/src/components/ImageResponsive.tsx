@@ -24,7 +24,7 @@ export const ImageResponsive: React.FC<ImageResponsiveProps> = ({
   return (
     <>
       <div
-        className={cn("hidden md:block", classNameString)}
+        className={cn("hidden lg:block", classNameString)}
         style={{
           paddingBottom: `${paddingBottom}%`,
         }}
@@ -36,7 +36,7 @@ export const ImageResponsive: React.FC<ImageResponsiveProps> = ({
         />
       </div>
       <div
-        className={cn("block md:hidden", classNameString)}
+        className={cn("block lg:hidden", classNameString)}
         style={{
           paddingBottom: `${paddingBottomMobile}%`,
         }}

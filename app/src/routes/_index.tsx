@@ -13,14 +13,14 @@ import { SanityClient } from "@root/server";
 
 export default function Index() {
   const root = useRouteLoaderData("root") as RootLoaderData;
-  const { title, pretitle, subtitle, description, image, file } =
+  const { title, subtitle, description, image, file } =
     useLoaderData<typeof loader>();
 
   return (
     <div className="w-[100%] py-12 px-8 lg:py-16 2xl:py-24 lg:px-16 h-[93dvh]">
       <LoadingBarAnimation />
       <div className="flex flex-col-reverse lg:flex-row justify-center gap-x-[10rem] gap-y-[2.5rem] max-w-[1440px] mx-auto">
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col items-center lg:items-start gap-3">
           {image && image.asset && (
             <ResponsiveImage
               className="w-[375px] rounded-lg overflow-hidden"
@@ -28,12 +28,7 @@ export default function Index() {
               alt={image.asset.altText}
             />
           )}
-          <p>
-            {pretitle && (
-              <span className="text-[#b58900] font-bold">{pretitle}</span>
-            )}
-          </p>
-          <h1 className="text-4xl lg:text-6xl font-bold text-[#002b36]">
+          <h1 className="mt-4 text-4xl lg:text-6xl font-bold text-[#002b36]">
             {title}
           </h1>
           <h4 className="text-[#cb4b16]">{subtitle}</h4>
@@ -52,14 +47,15 @@ export default function Index() {
             )}
           </div>
         </div>
-        <div className="hidden md:flex flex-col gap-4">
+        <div className="hidden lg:flex flex-col gap-8">
           {root.navigation.header.links.map((link: Link, index: number) => {
             return (
               <Button
                 key={index}
-                variant="secondary"
+                variant="link"
                 asChild={!link.link.includes("#")}
-                className="text-wrap"
+                className="text-wrap lg:text-4xl h-[unset]"
+                size="lg"
                 onClick={() => {
                   if (link.link.includes("#")) {
                     const element = document.querySelector(link.link);

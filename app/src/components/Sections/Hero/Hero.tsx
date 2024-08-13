@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <>
-      <div className="relative py-12 px-8 lg:py-16 2xl:py-24 lg:px-16 h-[100dvh] max-h-[750px] md:max-h-[1000px]">
+      <div className="relative py-12 px-8 lg:py-16 2xl:py-24 lg:px-16 h-[100dvh] max-h-[750px] lg:max-h-[1000px]">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-x-[10rem] gap-y-[2.5rem] max-w-[1440px] mx-auto">
           <div className="flex flex-col gap-3">
             <p>
@@ -66,7 +66,7 @@ const Hero: React.FC<HeroProps> = ({
                 element.scrollIntoView({ behavior: "smooth" });
               }
             }}
-            className="hidden md:block bottom-8 left-[50%] translate-x-[50%] absolute animate-bounce cursor-pointer"
+            className="hidden lg:block bottom-8 left-[50%] translate-x-[50%] absolute animate-bounce cursor-pointer"
           >
             <Mouse size={32} color="#002b36" />
             <ChevronsDown size={32} color="#002b36" />

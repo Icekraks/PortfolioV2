@@ -20,10 +20,10 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
 
   return (
     <>
-      <div className="flex md:hidden items-center justify-between">
+      <div className="flex lg:hidden items-center justify-between">
         <Button
           variant="secondary"
-          className="md:hidden z-50"
+          className="z-50"
           onClick={() => {
             setIsOpen(!isOpen);
           }}
@@ -43,11 +43,11 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
       />
       <div
         className={cn(
-          "md:hidden fixed transition-transform top-0 left-0 w-[90dvw] bg-[#002b36] h-[100dvh] px-4 pt-4 pb-4 z-50",
+          "lg:hidden fixed transition-transform top-0 left-0 w-[90dvw] max-w-[400px] bg-[#002b36] h-[100dvh] px-4 pt-4 pb-4 z-50",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        <div className="relative h-full  flex flex-col">
+        <div className="relative h-full flex flex-col">
           <div className="header flex">
             <h1>{root.navigation.headerTitle}</h1>
             <Button className="ml-[auto]" onClick={() => setIsOpen(false)}>
@@ -103,7 +103,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
           </div>
 
           <div className="flex items-center justify-center">
-            <h4 className="text-secondary text-md md:text-xl">{`${new Date().getFullYear()} © Felix Hu`}</h4>
+            <h4 className="text-secondary text-md lg:text-xl">{`${new Date().getFullYear()} © Felix Hu`}</h4>
           </div>
         </div>
       </div>

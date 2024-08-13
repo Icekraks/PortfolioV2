@@ -1,16 +1,30 @@
 import { SocialMedia } from "@app/types/global";
 import React from "react";
 import { Button } from "@app/theme/ui/button";
-import { Github, Linkedin, Mail, Youtube } from "lucide-react";
-import { Link } from "@remix-run/react";
+import { Github, Home, Linkedin, Mail, Youtube } from "lucide-react";
+import { Link, useLocation } from "@remix-run/react";
 
 type HeaderFooterProps = {
   social: SocialMedia;
 };
 
 export const HeaderFooter: React.FC<HeaderFooterProps> = ({ social }) => {
+  const location = useLocation();
+
   return (
-    <div className="flex md:flex-col justify-center items-center gap-2 md:gap-8">
+    <div className="flex lg:flex-col justify-center items-center gap-2 lg:gap-8">
+      {location.pathname !== "/" && (
+        <Button
+          className="hidden md:inline-flex"
+          variant="outline"
+          size="icon"
+          asChild
+        >
+          <Link to="/">
+            <Home />
+          </Link>
+        </Button>
+      )}
       {social.email && (
         <Button variant="outline" size="icon" asChild>
           <Link to={`mailto:${social.email}`} target="_blank" rel="noreferrer">

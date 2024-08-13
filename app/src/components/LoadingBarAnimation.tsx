@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 
 const LoadingBarAnimation = () => {
   const messages = [

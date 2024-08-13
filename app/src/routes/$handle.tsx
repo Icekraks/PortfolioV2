@@ -1,15 +1,8 @@
-import { ResponsiveImage } from "@app/components/ResponsiveImage";
 import Sections from "@app/components/Sections/Sections";
 import { PAGE_QUERY } from "@app/graphql/queries/page";
 
-import { Button } from "@app/theme/ui/button";
-import { Link, RootLoaderData } from "@app/types/global";
-import { defer, LoaderFunctionArgs, json } from "@remix-run/node";
-import {
-  Link as RemixLink,
-  useLoaderData,
-  useRouteLoaderData,
-} from "@remix-run/react";
+import { LoaderFunctionArgs, json } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { SanityClient } from "@root/server";
 
 const Page: React.FC = () => {
