@@ -2,7 +2,7 @@ import LoadingBarAnimation from "@app/components/LoadingBarAnimation";
 import { ResponsiveImage } from "@app/components/ResponsiveImage";
 import { INDEX_QUERY } from "@app/graphql/queries";
 import { Button } from "@app/theme/ui/button";
-import { Link, RootLoaderData } from "@app/types/global";
+import { LinkObject, RootLoaderData } from "@app/types/global";
 import { defer } from "@remix-run/node";
 import {
   Link as RemixLink,
@@ -48,39 +48,41 @@ export default function Index() {
           </div>
         </div>
         <div className="hidden lg:flex flex-col gap-8">
-          {root.navigation.header.links.map((link: Link, index: number) => {
-            return (
-              <Button
-                key={index}
-                variant="link"
-                asChild={!link.link.includes("#")}
-                className="text-wrap lg:text-4xl h-[unset]"
-                size="lg"
-                onClick={() => {
-                  if (link.link.includes("#")) {
-                    const element = document.querySelector(link.link);
-                    if (element) {
-                      window.location.hash = link.link;
-                      element.scrollIntoView({ behavior: "smooth" });
+          {root.navigation.header.linksNew.map(
+            (link: LinkObject, index: number) => {
+              return (
+                <Button
+                  key={index}
+                  variant="link"
+                  asChild={!link.link.link.includes("#")}
+                  className="text-wrap lg:text-4xl h-[unset] px-0 justify-start"
+                  size="lg"
+                  onClick={() => {
+                    if (link.link.link.includes("#")) {
+                      const element = document.querySelector(link.link.link);
+                      if (element) {
+                        window.location.hash = link.link;
+                        element.scrollIntoView({ behavior: "smooth" });
+                      }
                     }
-                  }
-                }}
-              >
-                {!link.link.includes("#") ? (
-                  <RemixLink
-                    key={index}
-                    to={link.link}
-                    target={link.external ? "_blank" : ""}
-                    rel="noreferrer"
-                  >
-                    {link.title}
-                  </RemixLink>
-                ) : (
-                  link.title
-                )}
-              </Button>
-            );
-          })}
+                  }}
+                >
+                  {!link.link.link.includes("#") ? (
+                    <RemixLink
+                      key={index}
+                      to={link.link.link}
+                      target={link.link.external ? "_blank" : ""}
+                      rel="noreferrer"
+                    >
+                      {link.link.title}
+                    </RemixLink>
+                  ) : (
+                    link.link.title
+                  )}
+                </Button>
+              );
+            }
+          )}
         </div>
       </div>
     </div>

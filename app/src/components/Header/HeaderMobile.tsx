@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Button } from "@app/theme/ui/button";
-import { Link, RootLoaderData } from "@app/types/global";
+import { Link, LinkObject, RootLoaderData } from "@app/types/global";
 import { Link as RemixLink, useRouteLoaderData } from "@remix-run/react";
 import { HeaderFooter } from "@app/components/Header/HeaderFooter";
 import { cn } from "@app/utils/utils";
@@ -55,51 +55,56 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
             </Button>
           </div>
           <div className="flex flex-col gap-4 flex-grow overflow-y-auto py-4">
-            {root.navigation.header.links.map((link: Link, index: number) => {
-              return (
-                <Button
-                  key={index}
-                  variant="secondary"
-                  asChild={!link.link.includes("#")}
-                  onClick={() => {
-                    if (link.link.includes("#")) {
-                      const element = document.querySelector(link.link);
-                      if (element) {
-                        setIsOpen(false);
-                        if (index === 0) {
-                          window.location.hash = "";
-                          window.scrollTo({
-                            top: 0,
-                            left: 0,
-                            behavior: "smooth",
-                          });
-                        } else {
-                          window.location.hash = link.link;
-                          element.scrollIntoView({ behavior: "smooth" });
+            {root.navigation.header.linksNew.map(
+              (link: LinkObject, index: number) => {
+                return (
+                  <Button
+                    key={index}
+                    variant="secondary"
+                    asChild={!link.link.link.includes("#")}
+                    onClick={() => {
+                      if (link.link.link.includes("#")) {
+                        const element = document.querySelector(link.link.link);
+                        if (element) {
+                          setIsOpen(false);
+                          if (index === 0) {
+                            window.location.hash = "";
+                            window.scrollTo({
+                              top: 0,
+                              left: 0,
+                              behavior: "smooth",
+                            });
+                          } else {
+                            window.location.hash = link.link.link;
+                            element.scrollIntoView({ behavior: "smooth" });
+                          }
                         }
                       }
-                    }
-                  }}
-                >
-                  {!link.link.includes("#") ? (
-                    <RemixLink
-                      key={index}
-                      to={link.link}
-                      target={link.external ? "_blank" : ""}
-                      rel="noreferrer"
-                    >
-                      {link.title}
-                    </RemixLink>
-                  ) : (
-                    link.title
-                  )}
-                </Button>
-              );
-            })}
+                      setIsOpen(false);
+                    }}
+                  >
+                    {!link.link.link.includes("#") ? (
+                      <RemixLink
+                        key={index}
+                        to={link.link.link}
+                        target={link.link.external ? "_blank" : ""}
+                        rel="noreferrer"
+                      >
+                        {link.link.title}
+                      </RemixLink>
+                    ) : (
+                      link.link.title
+                    )}
+                  </Button>
+                );
+              }
+            )}
           </div>
 
           <div className="mt-auto pt-4 mb-6">
-            <HeaderFooter social={root.social} />
+            <div className="flex lg:flex-col justify-center items-center gap-2 lg:gap-8">
+              <HeaderFooter social={root.social} />
+            </div>
           </div>
 
           <div className="flex items-center justify-center">

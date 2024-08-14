@@ -1,8 +1,7 @@
 import React from "react";
 import { ObjectFeatured } from "@app/types/schema";
-import { Link } from "@remix-run/react";
-import { imageBuilder } from "@app/utils/utils";
 import { ImageResponsive } from "@app/components/ImageResponsive";
+import { cn } from "@app/utils/utils";
 
 type FeaturedProps = ObjectFeatured & {
   sectionIndex: number;
@@ -12,9 +11,15 @@ const Featured: React.FC<FeaturedProps> = ({
   title,
   description,
   featuredSites,
+  sectionIndex,
 }) => {
   return (
-    <div className="relative py-12 px-8 lg:py-16 2xl:py-24 md:px-16">
+    <div
+      className={cn(
+        "relative pb-12 px-8 lg:pb-16 2xl:pb-24 md:px-16",
+        sectionIndex !== 0 ? "pt-12 lg:pt-16 2xl:pt-24" : ""
+      )}
+    >
       <div className="max-w-[1440px] mx-auto">
         <h2 className="text-primary text-2xl lg:text-4xl font-bold mb-4">
           {title}

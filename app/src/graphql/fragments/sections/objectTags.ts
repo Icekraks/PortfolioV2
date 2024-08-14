@@ -5,5 +5,5 @@ export const TAGS_SECTION_FRAGMENT = `
   categories[] {
     text,
     tags[] 
-  }
+  },
 `;

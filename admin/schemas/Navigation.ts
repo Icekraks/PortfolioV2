@@ -17,6 +17,40 @@ export default defineType({
       type: 'array',
       of: [{type: 'link'}],
     }),
+    defineField({
+      name: 'linksNew',
+      title: 'Links',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            {
+              name: 'icon',
+              title: 'Icon',
+              type: 'string',
+              options: {
+                list: [
+                  {title: 'About', value: 'about'},
+                  {title: 'Contact', value: 'contact'},
+                  {title: 'Other', value: 'other'},
+                ],
+              },
+            },
+            {
+              name: 'link',
+              title: 'Link',
+              type: 'link',
+            },
+          ],
+          preview: {
+            select: {
+              title: 'link.title',
+            },
+          },
+        },
+      ],
+    }),
   ],
   preview: {
     select: {

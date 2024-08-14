@@ -16,7 +16,7 @@ const Page: React.FC = () => {
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { handle } = params;
-  const response = await SanityClient.fetch(PAGE_QUERY, { handle });
+  const response = await SanityClient.fetch(PAGE_QUERY, { handle: handle });
   if (!response) throw new Response(null, { status: 404 });
 
   return json({

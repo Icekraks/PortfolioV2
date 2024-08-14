@@ -164,6 +164,29 @@ export interface Navigation extends SanityDocument {
    *
    */
   links?: Array<SanityKeyed<Link>>;
+
+  /**
+   * Links — `array`
+   *
+   *
+   */
+  linksNew?: Array<
+    SanityKeyed<{
+      /**
+       * Icon — `string`
+       *
+       *
+       */
+      icon?: "about" | "contact" | "other";
+
+      /**
+       * Link — `link`
+       *
+       *
+       */
+      link?: Link;
+    }>
+  >;
 }
 
 /**
@@ -299,6 +322,7 @@ export type ObjectSections = Array<
   | SanityKeyed<ObjectTags>
   | SanityKeyed<ObjectTextColumns>
   | SanityKeyed<ObjectFeatured>
+  | SanityKeyed<ObjectContact>
 >;
 
 export type Link = {
@@ -397,6 +421,27 @@ export type ObjectText = {
    *
    */
   description?: string;
+
+  /**
+   * File Button Label — `string`
+   *
+   *
+   */
+  fileLabel?: string;
+
+  /**
+   * File — `file`
+   *
+   *
+   */
+  file?: { _type: "file"; asset: SanityReference<any> };
+
+  /**
+   * CTA — `link`
+   *
+   *
+   */
+  cta?: Link;
 };
 
 export type ObjectTextColumns = {
@@ -463,6 +508,25 @@ export type ObjectTags = {
       tags?: Array<SanityKeyed<string>>;
     }>
   >;
+};
+
+export type Content = Array<SanityKeyed<SanityBlock>>;
+
+export type ObjectContact = {
+  _type: "objectContact";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `content`
+   *
+   *
+   */
+  description?: Content;
 };
 
 export type Documents =
