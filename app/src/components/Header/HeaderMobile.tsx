@@ -1,11 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Button } from "@app/theme/ui/button";
-<<<<<<< HEAD
-import { Link, LinkObject, RootLoaderData } from "@app/types/global";
-=======
 import type { Link, RootLoaderData } from "@app/types/global";
->>>>>>> main
 import { Link as RemixLink, useRouteLoaderData } from "@remix-run/react";
 import { HeaderFooter } from "@app/components/Header/HeaderFooter";
 import { cn } from "@app/utils/utils";
