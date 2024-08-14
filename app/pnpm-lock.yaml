@@ -50,6 +50,9 @@ dependencies:
   react-responsive:
     specifier: ^10.0.0
     version: 10.0.0(react@18.2.0)
+  swiper:
+    specifier: ^11.1.9
+    version: 11.1.9
   tailwind:
     specifier: ^4.0.0
     version: 4.0.0
@@ -6531,6 +6534,11 @@ packages:
   /supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /swiper@11.1.9:
+    resolution: {integrity: sha512-rflu8zvfGa3x1v/aeSufk4zRJffhOQowyvtJlp46sUBnOqAuk1Rdv5Ldj0AWWBV595iZ+ZMk7VB35ZRtRUomtA==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
 
   /tailwind-merge@2.2.1:
     resolution: {integrity: sha512-o+2GTLkthfa5YUt4JxPfzMIpQzZ3adD1vLVkvKE1Twl9UAhGsEbIZhHHZVRttyW177S8PDJI3bTQNaebyofK3Q==}

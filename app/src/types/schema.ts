@@ -322,7 +322,10 @@ export type ObjectSections = Array<
   | SanityKeyed<ObjectTags>
   | SanityKeyed<ObjectTextColumns>
   | SanityKeyed<ObjectFeatured>
+<<<<<<< HEAD
   | SanityKeyed<ObjectContact>
+=======
+>>>>>>> main
 >;
 
 export type Link = {

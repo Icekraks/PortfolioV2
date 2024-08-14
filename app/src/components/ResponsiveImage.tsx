@@ -12,7 +12,7 @@ export const ResponsiveImage: React.FC<ImageProps> = ({
   aspectRatio = 1,
 }) => {
   return (
-    <picture>
+    <picture className={`aspect-[${aspectRatio}]`}>
       <source srcSet={`${src}?w=640`} media="(max-width: 640px)" />
       <source srcSet={`${src}?w=1280`} media="(max-width: 1280px)" />
       <source srcSet={`${src}?w=1920`} media="(max-width: 1920px)" />

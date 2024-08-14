@@ -1,5 +1,6 @@
 import { Header } from "@app/components/Header/Header";
 import { useRef } from "react";
+import ReturnTop from "@app/components/ReturnTop";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Header />
       <main className="w-full bg-[#fdf6e3] h-full min-h-[100dvh]" ref={mainRef}>
         {children}
+        <ReturnTop />
       </main>
     </div>
   );

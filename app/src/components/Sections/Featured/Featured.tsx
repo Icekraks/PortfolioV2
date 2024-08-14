@@ -1,7 +1,6 @@
 import React from "react";
 import { ObjectFeatured } from "@app/types/schema";
-import { ImageResponsive } from "@app/components/ImageResponsive";
-import { cn } from "@app/utils/utils";
+import { ResponsiveImage } from "@app/components/ResponsiveImage";
 
 type FeaturedProps = ObjectFeatured & {
   sectionIndex: number;
@@ -30,9 +29,13 @@ const Featured: React.FC<FeaturedProps> = ({
             featuredSites.map((site, index) => {
               return (
                 <a href={site.url} target="_blank" key={index}>
-                  <div className="flex flex-col lg:flex-row gap-x-8">
-                    <div className="w-full lg:w-[34%] mb-4 lg:mb-0">
-                      <ImageResponsive image={site.image} aspectRatio={0.75} />
+                  <div className="flex flex-col md:flex-row gap-x-8">
+                    <div className="w-full md:w-[34%] mb-4 lg:mb-0">
+                      <ResponsiveImage
+                        src={site.image.asset.url}
+                        alt={site.image.asset.altText}
+                        aspectRatio={0.75}
+                      />
                     </div>
                     <div className="w-full lg:w-[66%]">
                       <h4 className="text-primary text-xl lg:text-2xl font-bold mb-4">
