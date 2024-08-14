@@ -322,10 +322,7 @@ export type ObjectSections = Array<
   | SanityKeyed<ObjectTags>
   | SanityKeyed<ObjectTextColumns>
   | SanityKeyed<ObjectFeatured>
-<<<<<<< HEAD
   | SanityKeyed<ObjectContact>
-=======
->>>>>>> main
 >;
 
 export type Link = {
@@ -513,8 +510,6 @@ export type ObjectTags = {
   >;
 };
 
-export type Content = Array<SanityKeyed<SanityBlock>>;
-
 export type ObjectContact = {
   _type: "objectContact";
   /**
@@ -525,11 +520,23 @@ export type ObjectContact = {
   title?: string;
 
   /**
-   * Description — `content`
+   * Description — `text`
    *
    *
    */
-  description?: Content;
+  description?: string;
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 };
 
 export type Documents =
