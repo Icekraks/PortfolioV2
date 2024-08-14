@@ -25,5 +25,9 @@ export default defineType({
       title: 'Featured Sites',
       type: 'objectFeatured',
     },
+    {
+      title: 'Contact Section',
+      type: 'objectContact',
+    },
   ],
 })

@@ -25,6 +25,12 @@ export type SocialMedia = {
 export type Navigation = {
   title: string;
   links: Link[];
+  linksNew: LinkObject[];
+};
+
+export type LinkObject = {
+  icon: string;
+  link: Link;
 };
 
 export type Link = {
