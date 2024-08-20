@@ -29,5 +29,9 @@ export default defineType({
       title: 'Featured Carousel',
       type: 'objectFeaturedCarousel',
     },
+    {
+      title: 'Contact Section',
+      type: 'objectContact',
+    },
   ],
 })

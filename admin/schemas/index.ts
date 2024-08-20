@@ -10,6 +10,7 @@ import objectTags from './Objects/Sections/objectTags'
 import objectFeatured from './Objects/Sections/objectFeatured'
 import featuredObject from './Objects/Sections/objectFeaturedObject'
 import objectFeaturedCarousel from './Objects/Sections/objectFeaturedCarousel'
+import objectContact from './Objects/Sections/objectContact'
 
 import navigation from './Navigation'
 import settingsMenus from './Settings/SettingsMenus'
@@ -29,6 +30,7 @@ const objects = [
   objectText,
   objectTextColumns,
   objectTags,
+  objectContact,
 ]
 
 export const schemaTypes = [...pages, ...settings, ...objects]

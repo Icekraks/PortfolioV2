@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'objectText',
-  title: 'Text Section',
+  name: 'objectContact',
+  title: 'Contact Section',
   type: 'object',
   fields: [
     defineField({
@@ -16,19 +16,9 @@ export default defineType({
       type: 'text',
     }),
     defineField({
-      name: 'fileLabel',
-      title: 'File Button Label',
-      type: 'string',
-    }),
-    defineField({
-      name: 'file',
-      title: 'File',
-      type: 'file',
-    }),
-    defineField({
-      name: 'cta',
-      title: 'CTA',
-      type: 'link',
+      name: 'image',
+      title: 'Image',
+      type: 'image',
     }),
   ],
   preview: {

@@ -82,11 +82,44 @@ export interface PageHomepage extends SanityDocument {
   title?: string;
 
   /**
-   * Description — `string`
+   * Pretitle — `string`
+   *
+   *
+   */
+  pretitle?: string;
+
+  /**
+   * Subtitle — `string`
+   *
+   *
+   */
+  subtitle?: string;
+
+  /**
+   * Description — `text`
    *
    *
    */
   description?: string;
+
+  /**
+   * File — `file`
+   *
+   *
+   */
+  file?: { _type: "file"; asset: SanityReference<any> };
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 
   /**
    * Sections — `objectSections`
@@ -131,6 +164,29 @@ export interface Navigation extends SanityDocument {
    *
    */
   links?: Array<SanityKeyed<Link>>;
+
+  /**
+   * Links — `array`
+   *
+   *
+   */
+  linksNew?: Array<
+    SanityKeyed<{
+      /**
+       * Icon — `string`
+       *
+       *
+       */
+      icon?: "about" | "contact" | "other";
+
+      /**
+       * Link — `link`
+       *
+       *
+       */
+      link?: Link;
+    }>
+  >;
 }
 
 /**
@@ -291,6 +347,7 @@ export type ObjectSections = Array<
   | SanityKeyed<ObjectTextColumns>
   | SanityKeyed<ObjectFeatured>
   | SanityKeyed<ObjectFeaturedCarousel>
+  | SanityKeyed<ObjectContact>
 >;
 
 export type Link = {
@@ -389,6 +446,27 @@ export type ObjectText = {
    *
    */
   description?: string;
+
+  /**
+   * File Button Label — `string`
+   *
+   *
+   */
+  fileLabel?: string;
+
+  /**
+   * File — `file`
+   *
+   *
+   */
+  file?: { _type: "file"; asset: SanityReference<any> };
+
+  /**
+   * CTA — `link`
+   *
+   *
+   */
+  cta?: Link;
 };
 
 export type ObjectTextColumns = {
@@ -455,6 +533,35 @@ export type ObjectTags = {
       tags?: Array<SanityKeyed<string>>;
     }>
   >;
+};
+
+export type ObjectContact = {
+  _type: "objectContact";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 };
 
 export type Documents =

@@ -1,16 +1,33 @@
 import React from "react";
 import { ObjectTags } from "@app/types/schema";
+import { cn } from "@app/utils/utils";
+import { Button } from "@app/theme/ui/button";
+import { Link } from "@remix-run/react";
 
 type TagsProps = ObjectTags & {
   sectionIndex: number;
 };
 
-const Tags: React.FC<TagsProps> = ({ title, categories }) => {
+const Tags: React.FC<TagsProps> = ({ title, categories, sectionIndex }) => {
   return (
-    <div className="relative py-12 px-8 md:py-24 md:px-16">
+    <div
+      className={cn(
+        "relative pb-12 px-0 lg:pb-16 2xl:pb-24 md:px-16",
+        sectionIndex !== 0 ? "pt-12 lg:pt-16 2xl:pt-24" : ""
+      )}
+    >
       <div className="max-w-[1440px] mx-auto mb-8">
-        <h2 className="text-primary text-2xl md:text-4xl font-bold">{title}</h2>
-        <div className="flex flex-col md:flex-row justify-center mt-8 md:px-10 lg:px-16 w-full gap-8">
+        {sectionIndex === 0 ? (
+          <h1 className="text-primary text-4xl lg:text-6xl font-bold mb-8 w-full">
+            {title}
+          </h1>
+        ) : (
+          <h2 className="text-primary text-2xl lg:text-4xl font-bold">
+            {title}
+          </h2>
+        )}
+
+        <div className="flex flex-col lg:flex-row justify-center mt-8 md:px-10 lg:px-16 w-full gap-4 lg:gap-8">
           {categories &&
             categories.map((category, index) => (
               <div key={index} className="flex flex-col w-full mb-4">
