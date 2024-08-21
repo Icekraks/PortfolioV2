@@ -31,6 +31,15 @@ export const structure = (S) => {
                     .schemaType('settingsSocial')
                     .documentId('settingsSocial'),
                 ),
+
+              S.listItem()
+                .title('404 Settings')
+                .child(
+                  S.document()
+                    .title('404 Settings')
+                    .schemaType('settingsNotFound')
+                    .documentId('settingsNotFound'),
+                ),
             ]),
         ),
     ])
