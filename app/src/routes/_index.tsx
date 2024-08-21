@@ -30,7 +30,7 @@ export default function Index() {
               alt={image.asset.altText}
             />
           )}
-          <h1 className="mt-4 text-4xl lg:text-6xl font-bold text-[#002b36]">
+          <h1 className="font-sans mt-4 text-4xl lg:text-6xl font-bold text-[#002b36]">
             {title}
           </h1>
           <h4 className="text-[#cb4b16]">{subtitle}</h4>
