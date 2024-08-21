@@ -12,8 +12,8 @@ const Tags: React.FC<TagsProps> = ({ title, categories, sectionIndex }) => {
   return (
     <div
       className={cn(
-        "relative pb-12 px-0 lg:pb-16 2xl:pb-24 md:px-16",
-        sectionIndex !== 0 ? "pt-12 lg:pt-16 2xl:pt-24" : ""
+        "relative mb-12 lg:mb-16 2xl:mb-24 px-0 md:px-16",
+        sectionIndex !== 0 ? "mt-12 lg:mt-16 2xl:mt-24" : ""
       )}
     >
       <div className="max-w-[1440px] mx-auto mb-8">
