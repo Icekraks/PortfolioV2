@@ -52,7 +52,7 @@ export const HeaderDesktop: React.FC = () => {
       </div>
 
       <div className="flex items-center justify-center">
-        <p className="text-secondary text-md lg:text-xl sidewaysText">{`${new Date().getFullYear()} © Felix Hu`}</p>
+        <h4 className="font-sans text-secondary text-md lg:text-xl sidewaysText">{`${new Date().getFullYear()} © Felix Hu`}</h4>
       </div>
     </div>
   );

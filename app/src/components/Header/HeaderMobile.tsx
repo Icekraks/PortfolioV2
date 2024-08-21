@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Button } from "@app/theme/ui/button";
-import type { Link, RootLoaderData } from "@app/types/global";
+import type { RootLoaderData } from "@app/types/global";
 import { Link as RemixLink, useRouteLoaderData } from "@remix-run/react";
 import { HeaderFooter } from "@app/components/Header/HeaderFooter";
 import { cn } from "@app/utils/utils";
@@ -32,7 +32,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
         </Button>
         {root.navigation.headerTitle ? (
           <RemixLink to={"/"}>
-            <h4>{root.navigation.headerTitle}</h4>
+            <h4 className="font-sans">{root.navigation.headerTitle}</h4>
           </RemixLink>
         ) : null}
       </div>
