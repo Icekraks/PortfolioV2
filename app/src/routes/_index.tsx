@@ -1,3 +1,4 @@
+// import PageHeader from "@app/components/Header/PageHeader";
 import LoadingBarAnimation from "@app/components/LoadingBarAnimation";
 import { ResponsiveImage } from "@app/components/ResponsiveImage";
 import { INDEX_QUERY } from "@app/graphql/queries";
@@ -18,6 +19,7 @@ export default function Index() {
 
   return (
     <div className="w-[100%] py-12 px-8 lg:py-16 2xl:py-24 lg:px-16 h-[93dvh]">
+      {/* <PageHeader /> */}
       <LoadingBarAnimation />
       <div className="flex flex-col-reverse lg:flex-row justify-center gap-x-[10rem] gap-y-[2.5rem] max-w-[1440px] mx-auto">
         <div className="flex flex-col items-center lg:items-start gap-3">
@@ -53,7 +55,7 @@ export default function Index() {
               return (
                 <Button
                   key={index}
-                  variant="headingLink"
+                  variant="link"
                   asChild={!link.link.link.includes("#")}
                   className="text-wrap lg:text-4xl h-[unset] px-0 justify-start"
                   size="lg"
