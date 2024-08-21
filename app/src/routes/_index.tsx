@@ -55,7 +55,7 @@ export default function Index() {
               return (
                 <Button
                   key={index}
-                  variant="link"
+                  variant="headingLink"
                   asChild={!link.link.link.includes("#")}
                   className="text-wrap lg:text-4xl h-[unset] px-0 justify-start"
                   size="lg"
