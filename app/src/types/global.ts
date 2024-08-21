@@ -13,6 +13,12 @@ export type RootLoaderData = {
     footer: Navigation;
   };
   social: SocialMedia;
+  notFound: NotFound;
+};
+
+export type NotFound = {
+  title: string;
+  description: string;
 };
 
 export type SocialMedia = {

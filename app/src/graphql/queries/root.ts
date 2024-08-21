@@ -10,7 +10,10 @@ export const ROOT_QUERY = `
       linkedin,
       github,
       youtube 
-    
+    },
+    "notFound": *[_type == "settingsNotFound"][0] {
+      title,
+      description
     }
   }
 `;
