@@ -20,7 +20,7 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <>
-      <div className="relative py-12 px-8 lg:py-16 2xl:py-24 lg:px-16 h-[100dvh] max-h-[750px] lg:max-h-[1000px]">
+      <div className="relative my-12 lg:my-16 2xl:my-24 px-8 lg:px-16 h-[100dvh] max-h-[750px] lg:max-h-[1000px]">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-x-[10rem] gap-y-[2.5rem] max-w-[1440px] mx-auto">
           <div className="flex flex-col gap-3">
             <p>

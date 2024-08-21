@@ -1,3 +1,51 @@
+@font-face {
+  font-family: "SFPro";
+  src: url("/fonts/SFpromedium.woff2") format("woff2"),
+    url("/fonts/SFpromedium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFPro";
+  src: url("/fonts/SFprobold.woff2") format("woff2"),
+    url("/fonts/SFprobold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SFPro";
+  src: url("/fonts/SFproitalic.woff2") format("woff2"),
+    url("/fonts/SFproitalic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "NewYork";
+  src: url("/fonts/NewYork.woff2") format("woff2"),
+    url("/fonts/NewYork.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NewYork";
+  src: url("/fonts/NewYorkMedium-Bold.woff2") format("woff2"),
+    url("/fonts/NewYorkMedium-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "NewYork";
+  src: url("/fonts/NewYorkItalic.woff2") format("woff2"),
+    url("/fonts/NewYorkItalic.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -150,4 +198,17 @@
   100% {
     width: 100%;
   }
+}
+
+body {
+  font-family: "SFPro", ui-sans-serif, system-ui;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "NewYork", ui-serif, serif;
 }
