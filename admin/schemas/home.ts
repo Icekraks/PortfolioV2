@@ -36,11 +36,6 @@ export default defineType({
       type: 'image',
     }),
     defineField({
-      name: 'sections',
-      title: 'Sections',
-      type: 'objectSections',
-    }),
-    defineField({
       name: 'metaTitle',
       title: 'Meta Title',
       type: 'string',
