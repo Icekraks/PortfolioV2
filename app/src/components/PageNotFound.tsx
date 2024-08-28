@@ -1,5 +1,5 @@
 import { RootLoaderData } from "@app/types/global";
-import { useLoaderData, useRouteLoaderData } from "@remix-run/react";
+import { useRouteLoaderData } from "@remix-run/react";
 
 const PageNotFound: React.FC = () => {
   const root = useRouteLoaderData("root") as RootLoaderData;
