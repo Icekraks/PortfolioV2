@@ -256,6 +256,29 @@ export interface SettingsSocial extends SanityDocument {
   youtube?: string;
 }
 
+/**
+ * 404 Settings
+ *
+ *
+ */
+export interface SettingsNotFound extends SanityDocument {
+  _type: "settingsNotFound";
+
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+}
+
 export type ObjectFeatured = {
   _type: "objectFeatured";
   /**
@@ -544,4 +567,5 @@ export type Documents =
   | PageHomepage
   | Navigation
   | SettingsMenus
-  | SettingsSocial;
+  | SettingsSocial
+  | SettingsNotFound;

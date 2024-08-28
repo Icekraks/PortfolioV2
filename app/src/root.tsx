@@ -13,6 +13,7 @@ import { SanityClient } from "@root/server";
 import { ROOT_QUERY } from "@app/graphql/queries/root";
 import { Layout } from "@app/components/Layout/Layout";
 import styles from "@app/globals.css";
+import PageNotFound from "@app/components/PageNotFound";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
@@ -48,13 +49,22 @@ const Document = ({ children }) => {
   );
 };
 
+export const ErrorBoundary = () => {
+  return (
+    <Document>
+      <Layout>
+        <PageNotFound />
+      </Layout>
+    </Document>
+  );
+};
+
 export default App;
 
 export async function loader() {
   const response = await SanityClient.fetch(ROOT_QUERY);
 
   return defer({
-    navigation: response.navigation,
-    social: response.social,
+    ...response,
   });
 }
