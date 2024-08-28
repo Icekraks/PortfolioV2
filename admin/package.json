@@ -9,7 +9,7 @@
     "dev": "pnpm run schema:typegen && sanity dev",
     "serve": "sanity start",
     "build": "sanity build",
-    "deploy": "sanity deploy",
+    "deploy:admin": "sanity deploy",
     "deploy:schema": "sanity graphql deploy --no-playground --force",
     "schema:typegen": "pnpm sanity-codegen"
   },
