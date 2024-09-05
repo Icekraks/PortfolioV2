@@ -1,6 +1,7 @@
 import React from "react";
 import { ObjectFeatured } from "@app/types/schema";
 import { ResponsiveImage } from "@app/components/ResponsiveImage";
+import { cn } from "@app/utils/utils";
 
 type FeaturedProps = ObjectFeatured & {
   sectionIndex: number;
@@ -15,8 +16,8 @@ const Featured: React.FC<FeaturedProps> = ({
   return (
     <div
       className={cn(
-        "relative pb-12 px-8 lg:pb-16 2xl:pb-24 md:px-16",
-        sectionIndex !== 0 ? "pt-12 lg:pt-16 2xl:pt-24" : ""
+        "relative mb-12 lg:mb-16 2xl:mb-24 px-8 md:px-16",
+        sectionIndex !== 0 ? "mt-12 lg:mt-16 2xl:mt-24" : ""
       )}
     >
       <div className="max-w-[1440px] mx-auto">
