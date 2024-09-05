@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'objectFeaturedCarousel',
-  title: 'Featured Carousel Section',
+  name: 'carouselObject',
+  title: 'Carousel Object',
   type: 'object',
   fields: [
     defineField({
@@ -11,19 +11,20 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
+      name: 'image',
+      title: 'Image',
+      type: 'image',
     }),
     defineField({
-      name: 'carouselSlides',
-      title: 'Carousel Slides',
-      type: 'array',
-      of: [
-        {
-          type: 'carouselObject',
-        },
-      ],
+      name: 'toggleEmbed',
+      title: 'Toggle Url Embed',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
+      name: 'url',
+      title: 'URL',
+      type: 'url',
     }),
   ],
   preview: {

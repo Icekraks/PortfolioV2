@@ -16,7 +16,7 @@ export const HeaderDesktop: React.FC = () => {
   return (
     <div
       className={
-        "sticky transition-transform top-0 left-0 w-full lg:max-w-[5rem] hidden lg:flex flex-col bg-[#002b36] h-[100dvh] justify-between  pt-12 pb-4  lg:pt-12 md:pb-12 border-r-2 border-r-borderAlt"
+        "sticky transition-transform top-0 left-0 w-full lg:max-w-[5rem] hidden lg:flex flex-col bg-[#002b36] h-[100dvh] justify-between  pt-12 pb-4 px-5 lg:pt-12 md:pb-12 "
       }
     >
       <div className="flex lg:flex-col justify-center items-center gap-2 lg:gap-8">

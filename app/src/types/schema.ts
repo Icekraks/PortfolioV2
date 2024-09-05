@@ -163,13 +163,6 @@ export interface Navigation extends SanityDocument {
    *
    *
    */
-  links?: Array<SanityKeyed<Link>>;
-
-  /**
-   * Links — `array`
-   *
-   *
-   */
   linksNew?: Array<
     SanityKeyed<{
       /**
@@ -177,7 +170,7 @@ export interface Navigation extends SanityDocument {
        *
        *
        */
-      icon?: "about" | "contact" | "other";
+      icon?: "about" | "contact" | "components" | "other";
 
       /**
        * Link — `link`
@@ -356,11 +349,11 @@ export type ObjectFeaturedCarousel = {
   description?: string;
 
   /**
-   * Featured Sites — `array`
+   * Carousel Slides — `array`
    *
    *
    */
-  featuredSites?: Array<SanityKeyed<FeaturedObject>>;
+  carouselSlides?: Array<SanityKeyed<CarouselObject>>;
 };
 
 export type ObjectSections = Array<
@@ -585,6 +578,42 @@ export type ObjectContact = {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
+};
+
+export type CarouselObject = {
+  _type: "carouselObject";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * Toggle Url Embed — `boolean`
+   *
+   *
+   */
+  toggleEmbed?: boolean;
+
+  /**
+   * URL — `url`
+   *
+   *
+   */
+  url?: string;
 };
 
 export type Documents =
