@@ -163,13 +163,6 @@ export interface Navigation extends SanityDocument {
    *
    *
    */
-  links?: Array<SanityKeyed<Link>>;
-
-  /**
-   * Links — `array`
-   *
-   *
-   */
   linksNew?: Array<
     SanityKeyed<{
       /**
@@ -177,7 +170,7 @@ export interface Navigation extends SanityDocument {
        *
        *
        */
-      icon?: "about" | "contact" | "other";
+      icon?: "about" | "contact" | "components" | "other";
 
       /**
        * Link — `link`
@@ -339,12 +332,44 @@ export type FeaturedObject = {
   url?: string;
 };
 
+export type ObjectFeaturedCarousel = {
+  _type: "objectFeaturedCarousel";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Number of Columns — `number`
+   *
+   *
+   */
+  numberOfColumns?: number;
+
+  /**
+   * Carousel Slides — `array`
+   *
+   *
+   */
+  carouselSlides?: Array<SanityKeyed<CarouselObject>>;
+};
+
 export type ObjectSections = Array<
   | SanityKeyed<ObjectHero>
   | SanityKeyed<ObjectText>
   | SanityKeyed<ObjectTags>
   | SanityKeyed<ObjectTextColumns>
   | SanityKeyed<ObjectFeatured>
+  | SanityKeyed<ObjectFeaturedCarousel>
   | SanityKeyed<ObjectContact>
 >;
 
@@ -560,6 +585,35 @@ export type ObjectContact = {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
+};
+
+export type CarouselObject = {
+  _type: "carouselObject";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * URL — `url`
+   *
+   *
+   */
+  url?: string;
 };
 
 export type Documents =

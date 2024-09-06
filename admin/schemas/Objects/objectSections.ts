@@ -26,6 +26,10 @@ export default defineType({
       type: 'objectFeatured',
     },
     {
+      title: 'Featured Carousel',
+      type: 'objectFeaturedCarousel',
+    },
+    {
       title: 'Contact Section',
       type: 'objectContact',
     },

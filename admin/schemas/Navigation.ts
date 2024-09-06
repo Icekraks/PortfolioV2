@@ -12,12 +12,6 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'links',
-      title: 'Links',
-      type: 'array',
-      of: [{type: 'link'}],
-    }),
-    defineField({
       name: 'linksNew',
       title: 'Links',
       type: 'array',
@@ -33,6 +27,7 @@ export default defineType({
                 list: [
                   {title: 'About', value: 'about'},
                   {title: 'Contact', value: 'contact'},
+                  {title: 'Components', value: 'components'},
                   {title: 'Other', value: 'other'},
                 ],
               },

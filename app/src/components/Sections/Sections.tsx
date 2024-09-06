@@ -4,6 +4,7 @@ import Hero from "@app/components/Sections/Hero/Hero";
 import Text from "@app/components/Sections/Text/Text";
 import Tags from "@app/components/Sections/Tags/Tags";
 import Featured from "@app/components/Sections/Featured/Featured";
+import FeaturedCarousel from "@app/components/Sections/FeaturedCarousel/FeaturedCarousel";
 import Contact from "@app/components/Sections/Contact/Contact";
 import { cn } from "@app/utils/utils";
 
@@ -17,6 +18,7 @@ const sectionsComponents: any = {
   Text,
   Tags,
   Featured,
+  FeaturedCarousel,
   Contact,
 };
 

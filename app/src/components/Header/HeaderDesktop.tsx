@@ -6,7 +6,7 @@ import {
 import { RootLoaderData } from "@app/types/global";
 import { Button } from "@app/theme/ui/button";
 import { HeaderFooter } from "./HeaderFooter";
-import { Home, Phone, User, ArrowRightSquare } from "lucide-react";
+import { Home, Phone, User, ArrowRightSquare, Puzzle } from "lucide-react";
 
 export const HeaderDesktop: React.FC = () => {
   const root = useRouteLoaderData("root") as RootLoaderData;
@@ -16,7 +16,7 @@ export const HeaderDesktop: React.FC = () => {
   return (
     <div
       className={
-        "sticky transition-transform top-0 left-0 w-full lg:max-w-[5rem] hidden lg:flex flex-col bg-[#002b36] h-[100dvh] justify-between  pt-12 pb-4  lg:pt-12 md:pb-12 border-r-2 border-r-borderAlt"
+        "sticky transition-transform top-0 left-0 w-full lg:max-w-[5rem] hidden lg:flex flex-col bg-[#002b36] h-[100dvh] justify-between  pt-12 pb-4 px-5 lg:pt-12 md:pb-12 "
       }
     >
       <div className="flex lg:flex-col justify-center items-center gap-2 lg:gap-8">
@@ -42,6 +42,8 @@ export const HeaderDesktop: React.FC = () => {
                   <User />
                 ) : link.icon === "contact" ? (
                   <Phone />
+                ) : link.icon === "components" ? (
+                  <Puzzle />
                 ) : link.icon === "other" ? (
                   <ArrowRightSquare />
                 ) : null}
