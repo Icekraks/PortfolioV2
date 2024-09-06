@@ -9,19 +9,9 @@ export const CarouselObject: React.FC<CarouselObjecType> = ({
   toggleEmbed,
   url,
 }) => {
-  return toggleEmbed ? (
-    <div>
-      <iframe
-        src={url}
-        title={title}
-        className="w-full h-full"
-        frameBorder="0"
-        allowFullScreen
-      />
-    </div>
-  ) : (
-    <div>
-      <Link to={url || "/"} target="_blank">
+  return (
+    <div className="h-full">
+      <Link to={url || "/"} target="_blank" className="block h-full">
         {image ? (
           <ResponsiveImage
             src={image.asset.url}

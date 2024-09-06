@@ -16,12 +16,6 @@ export default defineType({
       type: 'image',
     }),
     defineField({
-      name: 'toggleEmbed',
-      title: 'Toggle Url Embed',
-      type: 'boolean',
-      initialValue: false,
-    }),
-    defineField({
       name: 'url',
       title: 'URL',
       type: 'url',

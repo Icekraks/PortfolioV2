@@ -16,6 +16,15 @@ export default defineType({
       type: 'text',
     }),
     defineField({
+      name: 'numberOfColumns',
+      title: 'Number of Columns',
+      type: 'number',
+      options: {
+        list: [1, 2],
+      },
+      initialValue: 1,
+    }),
+    defineField({
       name: 'carouselSlides',
       title: 'Carousel Slides',
       type: 'array',

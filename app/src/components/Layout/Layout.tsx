@@ -12,7 +12,10 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col lg:flex-row">
       <Header />
-      <main className="w-full bg-[#fdf6e3] h-full min-h-[100dvh]" ref={mainRef}>
+      <main
+        className="w-full lg:w-[calc(100%-5rem)] bg-[#fdf6e3] h-full min-h-[100dvh]"
+        ref={mainRef}
+      >
         {children}
         <ReturnTop />
       </main>

@@ -349,6 +349,13 @@ export type ObjectFeaturedCarousel = {
   description?: string;
 
   /**
+   * Number of Columns — `number`
+   *
+   *
+   */
+  numberOfColumns?: number;
+
+  /**
    * Carousel Slides — `array`
    *
    *
@@ -600,13 +607,6 @@ export type CarouselObject = {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
-
-  /**
-   * Toggle Url Embed — `boolean`
-   *
-   *
-   */
-  toggleEmbed?: boolean;
 
   /**
    * URL — `url`
