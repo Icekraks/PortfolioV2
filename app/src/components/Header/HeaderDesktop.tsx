@@ -6,7 +6,7 @@ import {
 import { RootLoaderData } from "@app/types/global";
 import { Button } from "@app/theme/ui/button";
 import { HeaderFooter } from "./HeaderFooter";
-import { Home, Phone, User, ArrowRightSquare } from "lucide-react";
+import { Home, Phone, User, ArrowRightSquare, Puzzle } from "lucide-react";
 
 export const HeaderDesktop: React.FC = () => {
   const root = useRouteLoaderData("root") as RootLoaderData;
@@ -42,6 +42,8 @@ export const HeaderDesktop: React.FC = () => {
                   <User />
                 ) : link.icon === "contact" ? (
                   <Phone />
+                ) : link.icon === "components" ? (
+                  <Puzzle />
                 ) : link.icon === "other" ? (
                   <ArrowRightSquare />
                 ) : null}
