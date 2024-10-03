@@ -14,6 +14,7 @@ export type RootLoaderData = {
   };
   social: SocialMedia;
   notFound: NotFound;
+  passwordEnabled: boolean;
 };
 
 export type NotFound = {

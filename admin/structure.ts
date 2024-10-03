@@ -40,6 +40,14 @@ export const structure = (S) => {
                     .schemaType('settingsNotFound')
                     .documentId('settingsNotFound'),
                 ),
+              S.listItem()
+                .title('Maintenance Settings')
+                .child(
+                  S.document()
+                    .title('Maintenance Settings')
+                    .schemaType('settingsMaintenance')
+                    .documentId('settingsMaintenance'),
+                ),
             ]),
         ),
     ])

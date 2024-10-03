@@ -1,4 +1,5 @@
 import { HEADER_FRAGMENT } from "../fragments/header";
+import { PASSWORD_PAGE_QUERY } from "../fragments/password";
 
 export const ROOT_QUERY = `
   {
@@ -14,6 +15,7 @@ export const ROOT_QUERY = `
     "notFound": *[_type == "settingsNotFound"][0] {
       title,
       description
-    }
+    },
+    "maintenance": ${PASSWORD_PAGE_QUERY}
   }
 `;
