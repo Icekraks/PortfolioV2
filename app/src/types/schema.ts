@@ -122,13 +122,6 @@ export interface PageHomepage extends SanityDocument {
   };
 
   /**
-   * Sections — `objectSections`
-   *
-   *
-   */
-  sections?: ObjectSections;
-
-  /**
    * Meta Title — `string`
    *
    *
@@ -270,6 +263,50 @@ export interface SettingsNotFound extends SanityDocument {
    *
    */
   description?: string;
+}
+
+/**
+ * Maintenance Settings
+ *
+ *
+ */
+export interface SettingsMaintenance extends SanityDocument {
+  _type: "settingsMaintenance";
+
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title: string;
+
+  /**
+   * Subtitle — `string`
+   *
+   *
+   */
+  subtitle?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Maintenance Mode — `boolean`
+   *
+   *
+   */
+  maintenanceMode?: boolean;
+
+  /**
+   * Password — `string`
+   *
+   *
+   */
+  password?: string;
 }
 
 export type ObjectFeatured = {
@@ -622,4 +659,5 @@ export type Documents =
   | Navigation
   | SettingsMenus
   | SettingsSocial
-  | SettingsNotFound;
+  | SettingsNotFound
+  | SettingsMaintenance;
