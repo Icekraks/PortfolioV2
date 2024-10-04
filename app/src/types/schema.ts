@@ -309,131 +309,6 @@ export interface SettingsMaintenance extends SanityDocument {
   password?: string;
 }
 
-export type ObjectFeatured = {
-  _type: "objectFeatured";
-  /**
-   * Title — `string`
-   *
-   *
-   */
-  title?: string;
-
-  /**
-   * Description — `text`
-   *
-   *
-   */
-  description?: string;
-
-  /**
-   * Featured Sites — `array`
-   *
-   *
-   */
-  featuredSites?: Array<SanityKeyed<FeaturedObject>>;
-};
-
-export type FeaturedObject = {
-  _type: "featuredObject";
-  /**
-   * Title — `string`
-   *
-   *
-   */
-  title?: string;
-
-  /**
-   * Description — `text`
-   *
-   *
-   */
-  description?: string;
-
-  /**
-   * Image — `image`
-   *
-   *
-   */
-  image?: {
-    _type: "image";
-    asset: SanityReference<SanityImageAsset>;
-    crop?: SanityImageCrop;
-    hotspot?: SanityImageHotspot;
-  };
-
-  /**
-   * URL — `url`
-   *
-   *
-   */
-  url?: string;
-};
-
-export type ObjectFeaturedCarousel = {
-  _type: "objectFeaturedCarousel";
-  /**
-   * Title — `string`
-   *
-   *
-   */
-  title?: string;
-
-  /**
-   * Description — `text`
-   *
-   *
-   */
-  description?: string;
-
-  /**
-   * Number of Columns — `number`
-   *
-   *
-   */
-  numberOfColumns?: number;
-
-  /**
-   * Carousel Slides — `array`
-   *
-   *
-   */
-  carouselSlides?: Array<SanityKeyed<CarouselObject>>;
-};
-
-export type ObjectSections = Array<
-  | SanityKeyed<ObjectHero>
-  | SanityKeyed<ObjectText>
-  | SanityKeyed<ObjectTags>
-  | SanityKeyed<ObjectTextColumns>
-  | SanityKeyed<ObjectFeatured>
-  | SanityKeyed<ObjectFeaturedCarousel>
-  | SanityKeyed<ObjectContact>
->;
-
-export type Link = {
-  _type: "link";
-  /**
-   * Title — `string`
-   *
-   *
-   */
-  title?: string;
-
-  /**
-   * Link — `url`
-   *
-   *
-   */
-  link?: string;
-
-  /**
-   * New window — `boolean`
-   *
-   *
-   */
-  external?: boolean;
-};
-
 export type ObjectHero = {
   _type: "objectHero";
   /**
@@ -595,6 +470,61 @@ export type ObjectTags = {
   >;
 };
 
+export type ObjectFeaturedCarousel = {
+  _type: "objectFeaturedCarousel";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Number of Columns — `number`
+   *
+   *
+   */
+  numberOfColumns?: number;
+
+  /**
+   * Carousel Slides — `array`
+   *
+   *
+   */
+  carouselSlides?: Array<SanityKeyed<CarouselObject>>;
+};
+
+export type ObjectFeatured = {
+  _type: "objectFeatured";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Featured Sites — `array`
+   *
+   *
+   */
+  featuredSites?: Array<SanityKeyed<FeaturedObject>>;
+};
+
 export type ObjectContact = {
   _type: "objectContact";
   /**
@@ -622,6 +552,143 @@ export type ObjectContact = {
     crop?: SanityImageCrop;
     hotspot?: SanityImageHotspot;
   };
+};
+
+export type ObjectCTA = {
+  _type: "objectCTA";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * Call to Action — `flexibleLink`
+   *
+   *
+   */
+  callToAction?: FlexibleLink;
+
+  /**
+   * Image on Left? — `boolean`
+   *
+   *
+   */
+  leftImage?: boolean;
+};
+
+export type FlexibleLink = {
+  _type: "flexibleLink";
+  /**
+   * external — `link`
+   *
+   *
+   */
+  external?: Link;
+
+  /**
+   * internal — `internal`
+   *
+   *
+   */
+  internal?: Internal;
+
+  /**
+   * External Link? — `boolean`
+   *
+   *
+   */
+  type: boolean;
+};
+
+export type FeaturedObject = {
+  _type: "featuredObject";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Image — `image`
+   *
+   *
+   */
+  image?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * URL — `url`
+   *
+   *
+   */
+  url?: string;
+};
+
+export type ObjectSections = Array<
+  | SanityKeyed<ObjectHero>
+  | SanityKeyed<ObjectText>
+  | SanityKeyed<ObjectTags>
+  | SanityKeyed<ObjectTextColumns>
+  | SanityKeyed<ObjectFeatured>
+  | SanityKeyed<ObjectFeaturedCarousel>
+  | SanityKeyed<ObjectContact>
+>;
+
+export type Link = {
+  _type: "link";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Link — `url`
+   *
+   *
+   */
+  link?: string;
+
+  /**
+   * New window — `boolean`
+   *
+   *
+   */
+  external?: boolean;
 };
 
 export type CarouselObject = {
@@ -661,3 +728,10 @@ export type Documents =
   | SettingsSocial
   | SettingsNotFound
   | SettingsMaintenance;
+
+/**
+ * This interface is a stub. It was referenced in your sanity schema but
+ * the definition was not actually found. Future versions of
+ * sanity-codegen will let you type this explicity.
+ */
+type Internal = any;

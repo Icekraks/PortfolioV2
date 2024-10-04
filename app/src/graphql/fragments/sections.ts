@@ -3,6 +3,7 @@ import { TEXT_SECTION_FRAGMENT } from "./sections/objectText";
 import { TAGS_SECTION_FRAGMENT } from "./sections/objectTags";
 import { FEATURED_SECTION_FRAGMENT } from "./sections/objectFeatured";
 import { FEATURED_CAROUSEL_SECTION_FRAGMENT } from "./sections/objectFeaturedCarousel";
+import { OBJECT_CTA_FRAGMENT } from "./sections/objectCTA";
 
 export const SECTIONS_FRAGMENT = `
   _type,
@@ -13,4 +14,5 @@ export const SECTIONS_FRAGMENT = `
   _type == 'objectFeatured' => { ${FEATURED_SECTION_FRAGMENT} },
   _type == 'objectFeaturedCarousel' => { ${FEATURED_CAROUSEL_SECTION_FRAGMENT} },
   _type == 'objectContact' => { ${TEXT_SECTION_FRAGMENT} },
+  _type == 'objectCTA' => { ${OBJECT_CTA_FRAGMENT} }
 `;

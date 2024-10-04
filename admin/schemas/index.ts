@@ -18,25 +18,34 @@ import settingsMenus from './Settings/SettingsMenus'
 import settingsSocial from './Settings/SettingsSocial'
 import settingsNotFound from './Settings/SettingsNotFound'
 import SettingsMaintenance from './Settings/SettingsMaintenance'
+import flexibleLink from './Objects/flexibleLink'
+import objectCTA from './Objects/Sections/objectCTA'
+import InternalObject from './Objects/InternalObject'
 
 const pages = [page, home]
 
 const settings = [navigation, settingsMenus, settingsSocial, settingsNotFound, SettingsMaintenance]
 
 const objects = [
-  objectFeatured,
+  flexibleLink,
   featuredObject,
-  objectFeaturedCarousel,
   objectSections,
   linkObject,
+  carouselObject,
+  InternalObject,
+]
+
+const sections = [
   objectHero,
   objectText,
   objectTextColumns,
   objectTags,
+  objectFeaturedCarousel,
+  objectFeatured,
   objectContact,
-  carouselObject,
+  objectCTA,
 ]
 
-export const schemaTypes = [...pages, ...settings, ...objects]
+export const schemaTypes = [...pages, ...settings, ...sections, ...objects]
 
 export default schemaTypes

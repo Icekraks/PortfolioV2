@@ -6,6 +6,7 @@ import Tags from "@app/components/Sections/Tags/Tags";
 import Featured from "@app/components/Sections/Featured/Featured";
 import FeaturedCarousel from "@app/components/Sections/FeaturedCarousel/FeaturedCarousel";
 import Contact from "@app/components/Sections/Contact/Contact";
+import CTA from "@app/components/Sections/CTA/CTA";
 import { cn } from "@app/utils/utils";
 
 type Props = {
@@ -20,6 +21,7 @@ const sectionsComponents: any = {
   Featured,
   FeaturedCarousel,
   Contact,
+  CTA,
 };
 
 const Sections: React.FC<Props> = ({ sections }) => {
