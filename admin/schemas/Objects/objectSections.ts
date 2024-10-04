@@ -33,5 +33,9 @@ export default defineType({
       title: 'Contact Section',
       type: 'objectContact',
     },
+    {
+      title: 'Call To Action Section',
+      type: 'objectCTA',
+    },
   ],
 })
