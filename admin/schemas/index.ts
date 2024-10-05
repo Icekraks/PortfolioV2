@@ -12,6 +12,7 @@ import featuredObject from './Objects/Sections/objectFeaturedObject'
 import objectFeaturedCarousel from './Objects/Sections/objectFeaturedCarousel'
 import objectContact from './Objects/Sections/objectContact'
 import carouselObject from './Objects/Sections/objectCarouselObject'
+import categoryObject from './Objects/categoryObject'
 
 import navigation from './Navigation'
 import settingsMenus from './Settings/SettingsMenus'
@@ -21,6 +22,7 @@ import SettingsMaintenance from './Settings/SettingsMaintenance'
 import flexibleLink from './Objects/flexibleLink'
 import objectCTA from './Objects/Sections/objectCTA'
 import InternalObject from './Objects/InternalObject'
+import textColumnObject from './Objects/textColumnObject'
 
 const pages = [page, home]
 
@@ -33,6 +35,8 @@ const objects = [
   linkObject,
   carouselObject,
   InternalObject,
+  categoryObject,
+  textColumnObject,
 ]
 
 const sections = [

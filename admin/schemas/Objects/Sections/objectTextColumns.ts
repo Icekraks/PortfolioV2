@@ -16,20 +16,7 @@ export default defineType({
       type: 'array',
       of: [
         {
-          title: 'Text',
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'title',
-              title: 'Title',
-              type: 'string',
-            }),
-            defineField({
-              name: 'description',
-              title: 'Description',
-              type: 'text',
-            }),
-          ],
+          type: 'textColumnObject',
         },
       ],
     }),

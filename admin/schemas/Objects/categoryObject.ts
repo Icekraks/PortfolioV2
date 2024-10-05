@@ -1,29 +1,24 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'objectTags',
-  title: 'Text Section',
+  name: 'categoryObject',
+  title: 'Category',
   type: 'object',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
+      title: 'Text',
+      name: 'text',
       type: 'string',
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
+      title: 'Tags',
+      name: 'tags',
       type: 'array',
       of: [
         {
-          type: 'categoryObject',
+          type: 'string',
         },
       ],
     }),
   ],
-  preview: {
-    select: {
-      title: 'title',
-    },
-  },
 })
