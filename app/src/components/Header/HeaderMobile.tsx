@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Button } from "@app/theme/ui/button";
-import type { RootLoaderData } from "@app/types/global";
+import type { LinkObject, RootLoaderData } from "@app/types/global";
 import { Link as RemixLink, useRouteLoaderData } from "@remix-run/react";
 import { HeaderFooter } from "@app/components/Header/HeaderFooter";
 import { cn } from "@app/utils/utils";
@@ -57,6 +57,17 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
             </Button>
           </div>
           <div className="flex flex-col gap-4 flex-grow overflow-y-auto py-4">
+            <Button
+              variant="secondary"
+              asChild
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              <RemixLink to="/" rel="noreferrer">
+                Home
+              </RemixLink>
+            </Button>
             {root.navigation.header.linksNew.map(
               (link: LinkObject, index: number) => {
                 return (
