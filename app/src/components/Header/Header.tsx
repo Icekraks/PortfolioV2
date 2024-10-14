@@ -16,9 +16,11 @@ export const Header: React.FC = () => {
   }, [isMd]);
 
   return (
-    <header className="bg-[#002b36] w-full lg:w-[5rem] p-4  lg:p-0 sticky lg:static top-0 left-0 z-10">
-      <HeaderDesktop />
-      <HeaderMobile isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+    <header className="bg-[#002b36] w-full sticky top-0 left-0 z-10">
+      <div id="headerElement">
+        <HeaderDesktop />
+        <HeaderMobile isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />
+      </div>
     </header>
   );
 };

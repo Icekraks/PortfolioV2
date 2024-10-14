@@ -15,21 +15,15 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const isPassword = root?.passwordEnabled;
 
   return isPassword ? (
-    <div className="flex flex-col lg:flex-row">
-      <main
-        className="w-full lg:w-full bg-[#fdf6e3] h-full min-h-[100dvh]"
-        ref={mainRef}
-      >
+    <div className="flex flex-col">
+      <main className="w-full bg-[#fdf6e3] h-full" ref={mainRef}>
         {children}
       </main>
     </div>
   ) : (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col">
       <Header />
-      <main
-        className="w-full lg:w-[calc(100%-5rem)] bg-[#fdf6e3] h-full min-h-[100dvh]"
-        ref={mainRef}
-      >
+      <main className="w-full bg-[#fdf6e3] h-full" ref={mainRef}>
         {children}
         <ReturnTop />
       </main>

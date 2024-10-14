@@ -41,7 +41,7 @@ const Document = ({ children }) => {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-yellow">
         <Scripts />
         <ScrollRestoration />
         <LiveReload />

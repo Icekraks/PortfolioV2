@@ -7,54 +7,46 @@ import { RootLoaderData } from "@app/types/global";
 import { Button } from "@app/theme/ui/button";
 import { HeaderFooter } from "./HeaderFooter";
 import { Home, Phone, User, ArrowRightSquare, Puzzle } from "lucide-react";
+import { cn } from "@app/utils/utils";
 
 export const HeaderDesktop: React.FC = () => {
   const root = useRouteLoaderData("root") as RootLoaderData;
 
   const location = useLocation();
 
+  console.log(root.navigation.header);
+
   return (
     <div
-      className={
-        "sticky transition-transform top-0 left-0 w-full lg:max-w-[5rem] hidden lg:flex flex-col bg-[#002b36] h-[100dvh] justify-between  pt-12 pb-4 px-5 lg:pt-12 md:pb-12 "
-      }
+      className={cn(
+        "hidden lg:flex mx-auto border-b-[1px] bg-[#002b36] sticky top-0 z-50 transition-background ease-in-out duration-100"
+      )}
     >
-      <div className="flex lg:flex-col justify-center items-center gap-2 lg:gap-8">
-        {location.pathname !== "/" && (
-          <Button
-            className="hidden md:inline-flex"
-            variant="outline"
-            size="icon"
-            asChild
-          >
-            <RemixLink to="/">
-              <Home />
-            </RemixLink>
-          </Button>
-        )}
-        {location.pathname !== "/" &&
-          root.navigation.header.linksNew.map((link, index) => (
-            <Button variant="outline" size="icon" asChild key={index}>
-              <RemixLink aria-label={link.link.title} to={link.link.link}>
-                {link.icon === "Home" ? (
-                  <Home />
-                ) : link.icon === "about" ? (
-                  <User />
-                ) : link.icon === "contact" ? (
-                  <Phone />
-                ) : link.icon === "components" ? (
-                  <Puzzle />
-                ) : link.icon === "other" ? (
-                  <ArrowRightSquare />
-                ) : null}
+      <div className="flex justify-center items-center gap-2 lg:gap-8">
+        {root.navigation.header && root.navigation.header.linksNew && (
+          <nav className="flex gap-4 pt-1 px-8 max-w-screen-2xl mx-auto">
+            <Button asChild variant="linkInvert">
+              <RemixLink to="/" rel="noreferrer">
+                Home
               </RemixLink>
             </Button>
-          ))}
-        {location.pathname === "/" && <HeaderFooter social={root.social} />}
+            {root.navigation.header.linksNew.map((link, index) => (
+              <Button key={index} asChild variant="linkInvert">
+                <RemixLink
+                  aria-label={link.link.title}
+                  to={link.link.link}
+                  rel="noreferrer"
+                >
+                  {link.link.title}
+                </RemixLink>
+              </Button>
+            ))}
+          </nav>
+        )}
       </div>
 
-      <div className="flex items-center justify-center">
-        <h4 className="font-sans text-secondary text-md lg:text-xl sidewaysText">{`${new Date().getFullYear()} © Felix Hu`}</h4>
+      <div className="flex items-center justify-center ml-auto pr-8">
+        <h4 className="font-sans text-secondary text-md lg:text-xl">{`${new Date().getFullYear()} © Felix Hu`}</h4>
       </div>
     </div>
   );

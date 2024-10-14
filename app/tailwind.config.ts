@@ -19,6 +19,7 @@ export default {
     },
     extend: {
       colors: {
+        yellow: "var(--solarized-yellow)",
         border: "#b58900",
         borderAlt: "#fdf6e3",
         input: "hsl(var(--input))",

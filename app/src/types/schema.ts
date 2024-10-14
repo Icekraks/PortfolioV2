@@ -89,6 +89,13 @@ export interface PageHomepage extends SanityDocument {
   pretitle?: string;
 
   /**
+   * Slug — `slug`
+   *
+   *
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
    * Subtitle — `string`
    *
    *
@@ -418,23 +425,7 @@ export type ObjectTextColumns = {
    *
    *
    */
-  columns?: Array<
-    SanityKeyed<{
-      /**
-       * Title — `string`
-       *
-       *
-       */
-      title?: string;
-
-      /**
-       * Description — `text`
-       *
-       *
-       */
-      description?: string;
-    }>
-  >;
+  columns?: Array<SanityKeyed<TextColumnObject>>;
 };
 
 export type ObjectTags = {
@@ -451,23 +442,7 @@ export type ObjectTags = {
    *
    *
    */
-  categories?: Array<
-    SanityKeyed<{
-      /**
-       * Text — `string`
-       *
-       *
-       */
-      text?: string;
-
-      /**
-       * Tags — `array`
-       *
-       *
-       */
-      tags?: Array<SanityKeyed<string>>;
-    }>
-  >;
+  categories?: Array<SanityKeyed<CategoryObject>>;
 };
 
 export type ObjectFeaturedCarousel = {
@@ -665,6 +640,7 @@ export type ObjectSections = Array<
   | SanityKeyed<ObjectFeatured>
   | SanityKeyed<ObjectFeaturedCarousel>
   | SanityKeyed<ObjectContact>
+  | SanityKeyed<ObjectCTA>
 >;
 
 export type Link = {
@@ -720,6 +696,57 @@ export type CarouselObject = {
   url?: string;
 };
 
+export type Internal = {
+  _type: "internal";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Document — `reference`
+   *
+   *
+   */
+  document?: SanityReference<Page | PageHomepage>;
+};
+
+export type CategoryObject = {
+  _type: "categoryObject";
+  /**
+   * Text — `string`
+   *
+   *
+   */
+  text?: string;
+
+  /**
+   * Tags — `array`
+   *
+   *
+   */
+  tags?: Array<SanityKeyed<string>>;
+};
+
+export type TextColumnObject = {
+  _type: "textColumnObject";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+};
+
 export type Documents =
   | Page
   | PageHomepage
@@ -728,10 +755,3 @@ export type Documents =
   | SettingsSocial
   | SettingsNotFound
   | SettingsMaintenance;
-
-/**
- * This interface is a stub. It was referenced in your sanity schema but
- * the definition was not actually found. Future versions of
- * sanity-codegen will let you type this explicity.
- */
-type Internal = any;
