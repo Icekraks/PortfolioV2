@@ -20,7 +20,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
 
   return (
     <>
-      <div className="flex lg:hidden items-center justify-between">
+      <div className="p-4 flex lg:hidden items-center justify-between">
         <Button
           variant="secondary"
           className="z-50"
@@ -51,7 +51,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
       >
         <div className="relative h-full flex flex-col">
           <div className="header flex">
-            <h1>{root.navigation.headerTitle}</h1>
+            <h1 className="font-sans">{root.navigation.headerTitle}</h1>
             <Button className="ml-[auto]" onClick={() => setIsOpen(false)}>
               <X />
             </Button>
@@ -110,7 +110,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
           </div>
 
           <div className="flex items-center justify-center">
-            <h4 className="text-secondary text-md lg:text-xl">{`${new Date().getFullYear()} © Felix Hu`}</h4>
+            <h4 className="font-sans text-secondary text-md lg:text-xl">{`${new Date().getFullYear()} © Felix Hu`}</h4>
           </div>
         </div>
       </div>

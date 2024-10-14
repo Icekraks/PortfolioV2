@@ -5,16 +5,10 @@ import {
 } from "@remix-run/react";
 import { RootLoaderData } from "@app/types/global";
 import { Button } from "@app/theme/ui/button";
-import { HeaderFooter } from "./HeaderFooter";
-import { Home, Phone, User, ArrowRightSquare, Puzzle } from "lucide-react";
 import { cn } from "@app/utils/utils";
 
 export const HeaderDesktop: React.FC = () => {
   const root = useRouteLoaderData("root") as RootLoaderData;
-
-  const location = useLocation();
-
-  console.log(root.navigation.header);
 
   return (
     <div
