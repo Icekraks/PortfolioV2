@@ -27,12 +27,12 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
     <div className="relative my-12 lg:my-16 2xl:my-24 lg:px-16">
       <div className="max-w-[1440px] mx-auto lg:px-8">
         {title && (
-          <h2 className="text-primary text-2xl md:text-4xl font-bold mb-4">
+          <h2 className="text-primary text-2xl md:text-4xl font-bold mb-4 px-4">
             {title}
           </h2>
         )}
         {description && (
-          <p className="text-primary md:px-10 lg:px-16 mb-8 w-full">
+          <p className="text-primary md:px-10 lg:px-16 mb-8 w-full px-4">
             {description}
           </p>
         )}

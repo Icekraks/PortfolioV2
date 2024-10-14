@@ -26,11 +26,7 @@ const CTA: React.FC<CTAProps> = ({
     setReadMore(!readMore);
   };
 
-  console.log("hi");
-
   const resolvedUrl = callToAction ? urlResolver(callToAction) : null;
-  // console.log(resolvedUrl);
-  // return null;
 
   return (
     <div className="relative">

@@ -12,7 +12,7 @@ const Tags: React.FC<TagsProps> = ({ title, categories, sectionIndex }) => {
   return (
     <div
       className={cn(
-        "relative mb-12 lg:mb-16 2xl:mb-24 px-0 md:px-16",
+        "relative mb-12 lg:mb-16 2xl:mb-24 px-4 md:px-16",
         sectionIndex !== 0 ? "mt-12 lg:mt-16 2xl:mt-24" : ""
       )}
     >
