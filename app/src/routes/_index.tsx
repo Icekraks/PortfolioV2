@@ -13,7 +13,7 @@ export default function Index() {
   return (
     <div className="py-12 px-8 lg:py-8 2xl:py-12 lg:px-16 max-w-screen-2xl">
       <LoadingBarAnimation />
-      <div className="flex flex-col items-center gap-3 mx-auto max-w-[50%]">
+      <div className="flex flex-col items-center gap-3 mx-auto w-full lg:max-w-[50%]">
         {image && image.asset && (
           <ResponsiveImage
             className="w-[375px] rounded-lg overflow-hidden"
