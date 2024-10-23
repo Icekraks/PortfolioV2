@@ -1,13 +1,25 @@
 import {
   Link as RemixLink,
-  useLocation,
+  useFetcher,
   useRouteLoaderData,
 } from "@remix-run/react";
-import { RootLoaderData } from "@app/types/global";
+import { RootLoaderData, WeatherData } from "@app/types/global";
 import { Button } from "@app/theme/ui/button";
 import { cn } from "@app/utils/utils";
+import {
+  Cloud,
+  CloudDrizzle,
+  CloudLightning,
+  CloudRain,
+  CloudSnow,
+  Sun,
+} from "lucide-react";
 
-export const HeaderDesktop: React.FC = () => {
+export type HeaderDesktopTypes = {
+  weather: WeatherData | null;
+};
+
+export const HeaderDesktop: React.FC<HeaderDesktopTypes> = ({ weather }) => {
   const root = useRouteLoaderData("root") as RootLoaderData;
 
   return (
@@ -39,9 +51,27 @@ export const HeaderDesktop: React.FC = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-center ml-auto pr-8">
-        <h4 className="font-sans text-secondary text-md lg:text-xl">{`${new Date().getFullYear()} © Felix Hu`}</h4>
-      </div>
+      {weather && (
+        <div className="flex items-center justify-center ml-auto pr-8">
+          {weather.name}
+          <div className="mx-2">
+            {weather.weather[0].main === "Clear" ? (
+              <Sun size={24} />
+            ) : weather.weather[0].main === "Clouds" ? (
+              <Cloud size={24} />
+            ) : weather.weather[0].main === "Drizzle" ? (
+              <CloudDrizzle size={24} />
+            ) : weather.weather[0].main === "Rain" ? (
+              <CloudRain size={24} />
+            ) : weather.weather[0].main === "Thunderstorm" ? (
+              <CloudLightning size={24} />
+            ) : weather.weather[0].main === "Snow" ? (
+              <CloudSnow size={24} />
+            ) : null}
+          </div>
+          {weather.main.temp}°C
+        </div>
+      )}
     </div>
   );
 };

@@ -1,20 +1,35 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Button } from "@app/theme/ui/button";
-import type { LinkObject, RootLoaderData } from "@app/types/global";
+import type {
+  LinkObject,
+  RootLoaderData,
+  WeatherData,
+} from "@app/types/global";
 import { Link as RemixLink, useRouteLoaderData } from "@remix-run/react";
 import { HeaderFooter } from "@app/components/Header/HeaderFooter";
 import { cn } from "@app/utils/utils";
-import { Menu, X } from "lucide-react";
+import {
+  Cloud,
+  CloudDrizzle,
+  CloudLightning,
+  CloudRain,
+  CloudSnow,
+  Menu,
+  Sun,
+  X,
+} from "lucide-react";
 
 export type HeaderMobileProps = {
   isOpen: boolean;
+  weather: WeatherData | null;
   setIsOpen: (isOpen: boolean) => void;
 };
 
 export const HeaderMobile: React.FC<HeaderMobileProps> = ({
   isOpen,
   setIsOpen,
+  weather,
 }: HeaderMobileProps) => {
   const root = useRouteLoaderData("root") as RootLoaderData;
 
@@ -115,6 +130,27 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
           </div>
 
           <div className="mt-auto pt-4 mb-6">
+            {weather && (
+              <div className="flex items-center justify-center ml-auto mb-4">
+                {weather.name}
+                <div className="mx-2">
+                  {weather.weather[0].main === "Clear" ? (
+                    <Sun size={24} />
+                  ) : weather.weather[0].main === "Clouds" ? (
+                    <Cloud size={24} />
+                  ) : weather.weather[0].main === "Drizzle" ? (
+                    <CloudDrizzle size={24} />
+                  ) : weather.weather[0].main === "Rain" ? (
+                    <CloudRain size={24} />
+                  ) : weather.weather[0].main === "Thunderstorm" ? (
+                    <CloudLightning size={24} />
+                  ) : weather.weather[0].main === "Snow" ? (
+                    <CloudSnow size={24} />
+                  ) : null}
+                </div>
+                {weather.main.temp}°C
+              </div>
+            )}
             <div className="flex lg:flex-col justify-center items-center gap-2 lg:gap-8">
               <HeaderFooter social={root.social} />
             </div>

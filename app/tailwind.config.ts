@@ -19,13 +19,22 @@ export default {
     },
     extend: {
       colors: {
-        yellow: "var(--solarized-yellow)",
+        white: "var(--solarized-white)",
         border: "#b58900",
         borderAlt: "#fdf6e3",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        solarizedBlack: "var(--solarized-black)",
         background: "hsl(var(--primary))",
         foreground: "hsl(var(--primary-foreground))",
+        dark: {
+          DEFAULT: "var(--solarized-black)",
+          foreground: "var(--solarized-white)",
+        },
+        light: {
+          DEFAULT: "var(--solarized-white)",
+          foreground: "var(--solarized-black)",
+        },
         primary: {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",

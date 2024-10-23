@@ -1,6 +1,7 @@
 import { Header } from "@app/components/Header/Header";
 import { useRef } from "react";
 import ReturnTop from "@app/components/ReturnTop";
+import Footer from "@app/components/Footer/Footer";
 import { RootLoaderData } from "@app/types/global";
 import { useRouteLoaderData } from "@remix-run/react";
 
@@ -27,6 +28,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
         <ReturnTop />
       </main>
+      <Footer />
     </div>
   );
 };
