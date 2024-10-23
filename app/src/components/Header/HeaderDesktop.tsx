@@ -3,10 +3,9 @@ import {
   useFetcher,
   useRouteLoaderData,
 } from "@remix-run/react";
-import { RootLoaderData } from "@app/types/global";
+import { RootLoaderData, WeatherData } from "@app/types/global";
 import { Button } from "@app/theme/ui/button";
 import { cn } from "@app/utils/utils";
-import { useEffect, useState } from "react";
 import {
   Cloud,
   CloudDrizzle,
@@ -15,44 +14,13 @@ import {
   CloudSnow,
   Sun,
 } from "lucide-react";
-import { useLocation } from "@app/hooks/useLocation";
 
-export const HeaderDesktop: React.FC = () => {
+export type HeaderDesktopTypes = {
+  weather: WeatherData | null;
+};
+
+export const HeaderDesktop: React.FC<HeaderDesktopTypes> = ({ weather }) => {
   const root = useRouteLoaderData("root") as RootLoaderData;
-  const fetcher = useFetcher();
-  const [weather, setWeather] = useState<any | null>(null);
-  const { getCoords } = useLocation();
-
-  const getCoordinates = async () => {
-    try {
-      const coordinates = await getCoords();
-      return coordinates;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    const formData = new FormData();
-    const coordinates = getCoordinates();
-
-    coordinates.then((coords) => {
-      if (coords) {
-        formData.append("lat", coords.lat);
-        formData.append("lon", coords.lon);
-      } else {
-        formData.append("lat", "-33.865143");
-        formData.append("lon", "151.209900");
-      }
-      fetcher.submit(formData, { method: "post", action: "api/weather" });
-    });
-  }, []);
-
-  useEffect(() => {
-    if (fetcher.state === "idle" && fetcher.data) {
-      setWeather(fetcher.data);
-    }
-  }, [fetcher]);
 
   return (
     <div
