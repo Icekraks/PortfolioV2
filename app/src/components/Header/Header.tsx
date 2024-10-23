@@ -56,11 +56,11 @@ export const Header: React.FC = () => {
   return (
     <header className="bg-[#002b36] w-full sticky top-0 left-0 z-10">
       <div id="headerElement">
-        <HeaderDesktop weather={weather} />
+        <HeaderDesktop weather={null} />
         <HeaderMobile
           isOpen={isMenuOpen}
           setIsOpen={setIsMenuOpen}
-          weather={weather}
+          weather={null}
         />
       </div>
     </header>
