@@ -29,6 +29,7 @@ export const Header: React.FC = () => {
     const coordinates = getCoordinates();
 
     coordinates.then((coords) => {
+      console.log(coords);
       if (coords) {
         formData.append("lat", coords.lat);
         formData.append("lon", coords.lon);
@@ -52,15 +53,14 @@ export const Header: React.FC = () => {
     }
   }, [isMd]);
 
-  console.log(weather);
   return (
     <header className="bg-[#002b36] w-full sticky top-0 left-0 z-10">
       <div id="headerElement">
-        <HeaderDesktop weather={null} />
+        <HeaderDesktop weather={weather} />
         <HeaderMobile
           isOpen={isMenuOpen}
           setIsOpen={setIsMenuOpen}
-          weather={null}
+          weather={weather}
         />
       </div>
     </header>
