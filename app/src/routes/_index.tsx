@@ -11,7 +11,7 @@ export default function Index() {
     useLoaderData<typeof loader>();
 
   return (
-    <div className="py-12 px-8 lg:py-8 2xl:py-12 lg:px-16 max-w-screen-2xl">
+    <div className="py-12 px-8 lg:py-8 2xl:py-12 lg:px-16 max-w-screen-2xl mx-auto">
       <LoadingBarAnimation />
       <div className="flex flex-col items-center gap-3 mx-auto w-full lg:max-w-[50%]">
         {image && image.asset && (
