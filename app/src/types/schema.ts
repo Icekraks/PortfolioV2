@@ -572,6 +572,23 @@ export type ObjectCTA = {
   leftImage?: boolean;
 };
 
+export type ObjectWeather = {
+  _type: "objectWeather";
+  /**
+   * Title — `string`
+   *
+   *
+   */
+  title?: string;
+
+  /**
+   * Description — `text`
+   *
+   *
+   */
+  description?: string;
+};
+
 export type FlexibleLink = {
   _type: "flexibleLink";
   /**
@@ -641,6 +658,7 @@ export type ObjectSections = Array<
   | SanityKeyed<ObjectFeaturedCarousel>
   | SanityKeyed<ObjectContact>
   | SanityKeyed<ObjectCTA>
+  | SanityKeyed<ObjectWeather>
 >;
 
 export type Link = {

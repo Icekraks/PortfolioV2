@@ -7,6 +7,7 @@ import Featured from "@app/components/Sections/Featured/Featured";
 import FeaturedCarousel from "@app/components/Sections/FeaturedCarousel/FeaturedCarousel";
 import Contact from "@app/components/Sections/Contact/Contact";
 import CTA from "@app/components/Sections/CTA/CTA";
+import Weather from "@app/components/Sections/Weather/Weather";
 import { cn } from "@app/utils/utils";
 
 type Props = {
@@ -22,6 +23,7 @@ const sectionsComponents: any = {
   FeaturedCarousel,
   Contact,
   CTA,
+  Weather,
 };
 
 const Sections: React.FC<Props> = ({ sections }) => {

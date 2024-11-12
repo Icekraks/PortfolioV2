@@ -25,9 +25,9 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
 
   return (
     <div className="relative my-12 lg:my-16 2xl:my-24 lg:px-16">
-      <div className="max-w-[1440px] mx-auto md:px-8">
+      <div className="max-w-[1440px] mx-auto">
         {title && (
-          <h2 className="text-primary text-2xl md:text-4xl font-bold mb-4 px-4">
+          <h2 className="text-primary text-2xl md:text-4xl font-bold mb-4">
             {title}
           </h2>
         )}
@@ -42,14 +42,14 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
               <Button
                 ref={prevRef}
                 size="icon"
-                className="absolute top-1/2 left-0 md:left-[-1rem] lg:left-[-4rem] transform -translate-y-1/2 z-10"
+                className="absolute top-1/2 left-0 md:left-[-1rem] lg:left-[-4rem] transform -translate-y-1/2 z-1"
               >
                 <MoveLeft size={24} />
               </Button>
               <Button
                 ref={nextRef}
                 size="icon"
-                className="absolute top-1/2 right-0 md:right-[-1rem] lg:right-[-4rem] transform -translate-y-1/2 z-10"
+                className="absolute top-1/2 right-0 md:right-[-1rem] lg:right-[-4rem] transform -translate-y-1/2 z-1"
               >
                 <MoveRight size={24} />
               </Button>

@@ -13,6 +13,7 @@ import objectFeaturedCarousel from './Objects/Sections/objectFeaturedCarousel'
 import objectContact from './Objects/Sections/objectContact'
 import carouselObject from './Objects/Sections/objectCarouselObject'
 import categoryObject from './Objects/categoryObject'
+import objectWeather from './Objects/Sections/objectWeather'
 
 import navigation from './Navigation'
 import settingsMenus from './Settings/SettingsMenus'
@@ -48,6 +49,7 @@ const sections = [
   objectFeatured,
   objectContact,
   objectCTA,
+  objectWeather,
 ]
 
 export const schemaTypes = [...pages, ...settings, ...sections, ...objects]

@@ -37,5 +37,9 @@ export default defineType({
       title: 'Call To Action Section',
       type: 'objectCTA',
     },
+    {
+      title: 'Weather Section',
+      type: 'objectWeather',
+    },
   ],
 })
