@@ -5,6 +5,21 @@ import type { Swiper } from "swiper";
 import { register } from "swiper/element/bundle";
 import type { SwiperOptions } from "swiper/types";
 
+declare module "react" {
+  namespace JSX {
+    interface IntrinsicElements {
+      "swiper-container": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      > & { init?: boolean | string };
+      "swiper-slide": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+    }
+  }
+}
+
 export type SwiperRef = HTMLElement & {
   swiper: Swiper;
   initialize: () => void;
@@ -67,7 +82,6 @@ export const SwiperCarousel: React.FC<SwiperCarouselProps> = ({
   }, []);
 
   return (
-    // @ts-expect-error swiper custom element
     <swiper-container init={false} ref={parentRef} style={{ zIndex: 0 }}>
       {children}
     </swiper-container>
@@ -81,7 +95,6 @@ export const SwiperSlide: React.FC<SwiperSlideProps> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   return (
-    // @ts-expect-error swiper custom element
     <swiper-slide
       ref={ref}
       style={{ height: autoHeight ? "auto" : "100%" }}
