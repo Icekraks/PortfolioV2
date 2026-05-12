@@ -3,12 +3,12 @@
 import { useRef } from "react";
 import { Button } from "@portfolio/ui/button";
 import { MoveLeft, MoveRight } from "lucide-react";
-import {
-  SwiperCarousel,
-  SwiperSlide,
-  type SwiperRef,
-} from "@/components/carousel/SwiperCarousel";
-import { CarouselObject } from "./CarouselObject";
+// import {
+//   SwiperCarousel,
+//   SwiperSlide,
+//   type SwiperRef,
+// } from "@/components/carousel/SwiperCarousel";
+// import { CarouselObject } from "./CarouselObject";
 import type { SectionFeaturedCarousel } from "@portfolio/sanity";
 
 type FeaturedCarouselProps = SectionFeaturedCarousel & { sectionIndex: number };
@@ -54,7 +54,7 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
                 <MoveRight size={24} />
               </Button>
             </div>
-            <SwiperCarousel
+            {/* <SwiperCarousel
               parentRef={carouselRef}
               buttons={{ prev: prevRef, next: nextRef }}
               spaceBetween={8}
@@ -69,7 +69,7 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
                   <CarouselObject {...slide} />
                 </SwiperSlide>
               ))}
-            </SwiperCarousel>
+            </SwiperCarousel> */}
           </div>
         )}
       </div>
