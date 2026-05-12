@@ -12,7 +12,7 @@ export function RootProvider({
   data: RootData;
   children: React.ReactNode;
 }) {
-  return <RootContext.Provider value={data}>{children}</RootContext.Provider>;
+  return <RootContext value={data}>{children}</RootContext>;
 }
 
 export function useRoot(): RootData {
