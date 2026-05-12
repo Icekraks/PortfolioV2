@@ -39,15 +39,23 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 );
 
 export type ButtonProps = React.ComponentPropsWithRef<typeof BaseButton> &
   VariantProps<typeof buttonVariants> & {
-    render?: React.ReactElement | ((props: Record<string, unknown>) => React.ReactElement);
+    render?:
+      | React.ReactElement
+      | ((props: Record<string, unknown>) => React.ReactElement);
   };
 
-export function Button({ className, variant, size, render, ...props }: ButtonProps) {
+export function Button({
+  className,
+  variant,
+  size,
+  render,
+  ...props
+}: ButtonProps) {
   return (
     <BaseButton
       className={cn(buttonVariants({ variant, size, className }))}
