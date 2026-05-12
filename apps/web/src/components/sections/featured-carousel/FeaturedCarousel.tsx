@@ -19,9 +19,9 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
   numberOfColumns,
   carouselSlides,
 }) => {
-  const carouselRef = useRef<SwiperRef>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
-  const prevRef = useRef<HTMLButtonElement>(null);
+  // const carouselRef = useRef<SwiperRef>(null);
+  // const nextRef = useRef<HTMLButtonElement>(null);
+  // const prevRef = useRef<HTMLButtonElement>(null);
 
   return (
     <div className="relative my-12 lg:my-16 2xl:my-24 lg:px-16">
@@ -40,14 +40,14 @@ const FeaturedCarousel: React.FC<FeaturedCarouselProps> = ({
           <div className="relative">
             <div className="hidden lg:block">
               <Button
-                ref={prevRef}
+                // ref={prevRef}
                 size="icon"
                 className="absolute top-1/2 left-0 md:left-[-1rem] lg:left-[-4rem] transform -translate-y-1/2 z-10"
               >
                 <MoveLeft size={24} />
               </Button>
               <Button
-                ref={nextRef}
+                // ref={nextRef}
                 size="icon"
                 className="absolute top-1/2 right-0 md:right-[-1rem] lg:right-[-4rem] transform -translate-y-1/2 z-10"
               >
