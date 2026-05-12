@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 import type { RootData } from "@/types/global";
 
 const RootContext = createContext<RootData | null>(null);
@@ -12,7 +12,7 @@ export function RootProvider({
   data: RootData;
   children: React.ReactNode;
 }) {
-  return <RootContext value={data}>{children}</RootContext>;
+  return React.createElement(RootContext.Provider, { value: data }, children);
 }
 
 export function useRoot(): RootData {
