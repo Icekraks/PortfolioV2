@@ -16,6 +16,7 @@ export const HeaderFooter: React.FC<HeaderFooterProps> = ({ social }) => {
         <Button
           variant="outline"
           size="icon"
+          nativeButton={false}
           render={
             <Link
               href={`mailto:${social.email}`}
@@ -31,6 +32,7 @@ export const HeaderFooter: React.FC<HeaderFooterProps> = ({ social }) => {
         <Button
           variant="outline"
           size="icon"
+          nativeButton={false}
           render={
             <Link href={social.linkedin} target="_blank" rel="noreferrer" />
           }
@@ -42,6 +44,7 @@ export const HeaderFooter: React.FC<HeaderFooterProps> = ({ social }) => {
         <Button
           variant="outline"
           size="icon"
+          nativeButton={false}
           render={
             <Link href={social.github} target="_blank" rel="noreferrer" />
           }
@@ -53,6 +56,7 @@ export const HeaderFooter: React.FC<HeaderFooterProps> = ({ social }) => {
         <Button
           variant="outline"
           size="icon"
+          nativeButton={false}
           render={
             <Link href={social.youtube} target="_blank" rel="noreferrer" />
           }

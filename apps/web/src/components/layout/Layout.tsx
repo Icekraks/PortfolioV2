@@ -14,16 +14,16 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   if (passwordEnabled) {
     return (
-      <div className="flex flex-col">
-        <main className="w-full bg-[#fdf6e3] h-full">{children}</main>
+      <div className="flex flex-col min-h-dvh">
+        <main className="w-full bg-[#fdf6e3] flex-1">{children}</main>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-dvh">
       <Header />
-      <main className="w-full bg-[#fdf6e3] h-full">
+      <main className="w-full bg-[#fdf6e3] flex-1">
         {children}
         <ReturnTop />
       </main>

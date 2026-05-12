@@ -75,7 +75,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
         onClick={() => setIsOpen(false)}
         className={cn(
           "fixed top-0 left-0 w-full h-full z-[49] bg-black opacity-20 cursor-pointer",
-          isOpen ? "block" : "hidden"
+          isOpen ? "block" : "hidden",
         )}
       />
 
@@ -83,7 +83,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
       <div
         className={cn(
           "lg:hidden fixed transition-transform top-0 left-0 w-[90dvw] max-w-[400px] bg-[#002b36] h-[100dvh] px-4 pt-4 pb-4 z-50",
-          isOpen ? "translate-x-0" : "-translate-x-full"
+          isOpen ? "translate-x-0" : "-translate-x-full",
         )}
       >
         <div className="relative h-full flex flex-col">
@@ -97,6 +97,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
           <div className="flex flex-col gap-4 flex-grow overflow-y-auto py-4">
             <Button
               variant="secondary"
+              nativeButton={false}
               render={<Link href="/" rel="noreferrer" />}
               onClick={() => setIsOpen(false)}
             >
@@ -108,6 +109,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
                 <Button
                   key={index}
                   variant="secondary"
+                  nativeButton={isAnchor ? undefined : false}
                   onClick={() => handleLinkClick(item)}
                   render={
                     !isAnchor ? (

@@ -37,6 +37,7 @@ const Text: React.FC<TextProps> = ({
           {file?.asset?.url && (
             <Button
               variant="default"
+              nativeButton={false}
               render={<a href={file.asset.url} download target="_blank" />}
             >
               {fileLabel ?? "Get my CV"}
@@ -45,6 +46,7 @@ const Text: React.FC<TextProps> = ({
           {cta?.link && (
             <Button
               variant="default"
+              nativeButton={false}
               render={<Link href={cta.link} />}
             >
               {cta.title}

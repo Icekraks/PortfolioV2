@@ -35,20 +35,31 @@ export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({ weather }) => {
   return (
     <div
       className={cn(
-        "hidden lg:flex mx-auto border-b-[1px] bg-[#002b36] sticky top-0 z-50 transition-background ease-in-out duration-100"
+        "hidden lg:flex mx-auto border-b-[1px] bg-[#002b36] sticky top-0 z-50 transition-background ease-in-out duration-100",
       )}
     >
       <div className="flex justify-center items-center gap-2 lg:gap-8">
         {root.navigation?.header?.linksNew && (
           <nav className="flex gap-4 pt-1 px-8 max-w-screen-2xl mx-auto">
-            <Button variant="linkInvert" render={<Link href="/" rel="noreferrer" />}>
+            <Button
+              variant="linkInvert"
+              nativeButton={false}
+              render={<Link href="/" rel="noreferrer" />}
+            >
               Home
             </Button>
             {root.navigation.header.linksNew.map((item, index) => (
               <Button
                 key={index}
                 variant="linkInvert"
-                render={<Link href={item.link.link} rel="noreferrer" aria-label={item.link.title} />}
+                nativeButton={false}
+                render={
+                  <Link
+                    href={item.link.link}
+                    rel="noreferrer"
+                    aria-label={item.link.title}
+                  />
+                }
               >
                 {item.link.title}
               </Button>

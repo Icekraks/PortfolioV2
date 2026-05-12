@@ -38,6 +38,7 @@ const Hero: React.FC<HeroProps> = ({
             <div>
               <Button
                 variant="default"
+                nativeButton={false}
                 render={<a href={file.asset.url} download target="_blank" />}
               >
                 Get my CV

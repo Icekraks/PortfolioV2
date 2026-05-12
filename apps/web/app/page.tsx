@@ -1,4 +1,8 @@
-import { sanityClient, INDEX_QUERY, type SanityHomepage } from "@portfolio/sanity";
+import {
+  sanityClient,
+  INDEX_QUERY,
+  type SanityHomepage,
+} from "@portfolio/sanity";
 import LoadingBarAnimation from "@/components/LoadingBarAnimation";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { Button } from "@portfolio/ui/button";
@@ -9,7 +13,7 @@ export default async function HomePage() {
   const data = await sanityClient.fetch<SanityHomepage>(
     INDEX_QUERY,
     {},
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 60 } },
   );
 
   const { title, subtitle, description, image, file } = data ?? {};
@@ -38,6 +42,7 @@ export default async function HomePage() {
           <div>
             <Button
               variant="default"
+              nativeButton={false}
               render={<a href={file.asset.url} download target="_blank" />}
             >
               Get my CV

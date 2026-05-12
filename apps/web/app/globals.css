@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* Scan workspace UI package for class names */
-@source "../../packages/ui/src";
+@source "../../../packages/ui/src";
 
 /* Custom fonts */
 @font-face {
@@ -103,7 +103,7 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: "SFPro", ui-sans-serif, system-ui;
-    height: 100dvh;
+    min-height: 100dvh;
   }
 
   h1,
